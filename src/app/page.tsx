@@ -42,13 +42,13 @@ export default function HomePage() {
 
           {/* Content */}
           <div className="relative z-10 mx-auto max-w-3xl">
-            <p className="mb-4 font-accent text-lg tracking-widest text-sunlit-clay uppercase">
+            <h1 className="mb-4 font-heading text-7xl leading-none tracking-tight text-espresso sm:text-8xl md:text-9xl">
               Unfiltered Rays
-            </p>
-            <h1 className="mb-6 font-heading text-5xl leading-tight tracking-tight text-espresso sm:text-6xl md:text-7xl">
-              Photo Booth Experiences,{' '}
-              <span className="italic text-almond">Elevated</span>
             </h1>
+            <p className="mb-6 font-subheading text-lg tracking-widest text-sunlit-clay uppercase sm:text-xl">
+              Photo Booth Experiences,{' '}
+              <span className="italic">Elevated</span>
+            </p>
             <p className="mx-auto mb-10 max-w-xl font-subheading text-lg leading-relaxed text-almond/80 sm:text-xl">
               Bringing golden-hour warmth and effortless elegance to every
               celebration. Premium photo booths for the moments that matter.
