@@ -152,6 +152,173 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* ── Our Offerings ── */}
+        <section className="bg-white px-6 py-28 sm:py-36">
+          <div className="mx-auto max-w-6xl">
+            <div className="mb-16 text-center">
+              <p className="mb-4 font-subheading text-sm tracking-widest text-sunlit-clay uppercase">
+                What We Offer
+              </p>
+              <h2 className="font-heading text-4xl text-espresso sm:text-5xl">
+                Curated Booth Experiences
+              </h2>
+            </div>
+
+            <div className="grid gap-6 md:grid-cols-2">
+              {/* Offering 1 */}
+              <div className="relative overflow-hidden rounded-3xl bg-desert-sand/30 p-10 sm:p-12">
+                <div className="pointer-events-none absolute -top-8 -right-8 h-32 w-32 rounded-full bg-desert-glow/10" />
+                <p className="mb-2 font-subheading text-xs tracking-widest text-sunlit-clay uppercase">
+                  Most Popular
+                </p>
+                <h3 className="mb-4 font-heading text-2xl text-espresso sm:text-3xl">
+                  The Golden Hour Booth
+                </h3>
+                <p className="mb-6 leading-relaxed text-almond/70">
+                  Our signature open-air booth with warm, golden lighting and
+                  custom backdrops. Includes instant prints, digital gallery,
+                  and a dedicated attendant for a seamless experience.
+                </p>
+                <ul className="space-y-2 text-sm text-almond/70">
+                  <li className="flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-desert-glow" />
+                    Custom photo overlays &amp; branding
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-desert-glow" />
+                    Unlimited sessions &amp; instant prints
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-desert-glow" />
+                    Curated digital gallery
+                  </li>
+                </ul>
+              </div>
+
+              {/* Offering 2 */}
+              <div className="relative overflow-hidden rounded-3xl bg-desert-sand/30 p-10 sm:p-12">
+                <div className="pointer-events-none absolute -top-8 -right-8 h-32 w-32 rounded-full bg-sky/10" />
+                <p className="mb-2 font-subheading text-xs tracking-widest text-sky uppercase">
+                  Intimate &amp; Fun
+                </p>
+                <h3 className="mb-4 font-heading text-2xl text-espresso sm:text-3xl">
+                  The Desert Glow Booth
+                </h3>
+                <p className="mb-6 leading-relaxed text-almond/70">
+                  A warm, enclosed booth experience with a boho-chic aesthetic.
+                  Perfect for weddings, showers, and intimate gatherings where
+                  you want that cozy, golden-hour feel.
+                </p>
+                <ul className="space-y-2 text-sm text-almond/70">
+                  <li className="flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-desert-glow" />
+                    Styled backdrop &amp; props
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-desert-glow" />
+                    Instant sharing via text &amp; email
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-desert-glow" />
+                    Guest book print option
+                  </li>
+                </ul>
+              </div>
+
+              {/* Offering 3 — full width */}
+              <div className="relative overflow-hidden rounded-3xl bg-espresso p-10 sm:p-12 md:col-span-2">
+                <div className="pointer-events-none absolute -bottom-12 -right-12 h-40 w-40 rounded-full bg-sunlit-clay/10" />
+                <div className="mx-auto max-w-2xl text-center">
+                  <p className="mb-2 font-subheading text-xs tracking-widest text-desert-glow uppercase">
+                    Fully Tailored
+                  </p>
+                  <h3 className="mb-4 font-heading text-2xl text-desert-sand sm:text-3xl">
+                    Custom &amp; Corporate
+                  </h3>
+                  <p className="leading-relaxed text-desert-sand/70">
+                    For brands, launches, and large-scale events — a fully
+                    branded experience from the ground up. Custom wraps,
+                    on-screen branding, data capture, and premium add-ons
+                    tailored to your vision.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── The Experience / Process ── */}
+        <section className="bg-desert-sand/40 px-6 py-28 sm:py-36">
+          <div className="mx-auto max-w-5xl">
+            <div className="mb-20 text-center">
+              <p className="mb-4 font-subheading text-sm tracking-widest text-sunlit-clay uppercase">
+                How It Works
+              </p>
+              <h2 className="font-heading text-4xl text-espresso sm:text-5xl">
+                From Inquiry to Unforgettable
+              </h2>
+            </div>
+
+            <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
+              {/* Step 1 */}
+              <div className="text-center">
+                <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full border-2 border-sunlit-clay/30">
+                  <span className="font-heading text-3xl text-sunlit-clay">1</span>
+                </div>
+                <h3 className="mb-2 font-heading text-lg text-espresso">
+                  Inquire
+                </h3>
+                <p className="text-sm leading-relaxed text-almond/70">
+                  Tell us about your event, your vision, and the vibe
+                  you&rsquo;re going for. We&rsquo;ll take it from there.
+                </p>
+              </div>
+
+              {/* Step 2 */}
+              <div className="text-center">
+                <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full border-2 border-sunlit-clay/30">
+                  <span className="font-heading text-3xl text-sunlit-clay">2</span>
+                </div>
+                <h3 className="mb-2 font-heading text-lg text-espresso">
+                  Plan
+                </h3>
+                <p className="text-sm leading-relaxed text-almond/70">
+                  We&rsquo;ll design a custom package — backdrops, overlays,
+                  prints, and all the details — to match your event perfectly.
+                </p>
+              </div>
+
+              {/* Step 3 */}
+              <div className="text-center">
+                <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full border-2 border-sunlit-clay/30">
+                  <span className="font-heading text-3xl text-sunlit-clay">3</span>
+                </div>
+                <h3 className="mb-2 font-heading text-lg text-espresso">
+                  Experience
+                </h3>
+                <p className="text-sm leading-relaxed text-almond/70">
+                  On the day, we set up, run, and break down — you just enjoy
+                  watching your guests light up.
+                </p>
+              </div>
+
+              {/* Step 4 */}
+              <div className="text-center">
+                <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full border-2 border-sunlit-clay/30">
+                  <span className="font-heading text-3xl text-sunlit-clay">4</span>
+                </div>
+                <h3 className="mb-2 font-heading text-lg text-espresso">
+                  Relive
+                </h3>
+                <p className="text-sm leading-relaxed text-almond/70">
+                  Receive your full digital gallery within 48 hours. Share,
+                  print, and relive the magic whenever you want.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Future sections will be added in subsequent phases */}
       </main>
     </>
