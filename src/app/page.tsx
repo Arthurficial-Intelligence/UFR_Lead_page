@@ -1,4 +1,3 @@
-import { EmailCaptureForm } from '@/components/email-capture-form'
 import { SITE_CONFIG } from '@/lib/constants'
 
 const jsonLd = {
@@ -28,93 +27,47 @@ export default function HomePage() {
       />
 
       <main className="min-h-screen">
-        {/* Hero Section */}
-        <section className="flex min-h-[80vh] flex-col items-center justify-center px-4 text-center">
-          <h1 className="mb-4 text-5xl font-bold tracking-tight sm:text-6xl">
-            Premium Photo Booth Experiences
-          </h1>
-          <p className="mb-8 max-w-2xl text-xl text-gray-600">
-            Unforgettable moments for weddings, corporate events, and parties.
-            Capture the fun with our state-of-the-art photo booths.
-          </p>
-          <EmailCaptureForm />
-        </section>
-
-        {/* Features Section */}
-        <section className="bg-gray-50 px-4 py-20">
-          <div className="mx-auto max-w-5xl">
-            <h2 className="mb-12 text-center text-3xl font-bold">
-              Why Choose Us
-            </h2>
-            <div className="grid gap-8 md:grid-cols-3">
-              <div className="rounded-xl bg-white p-8 shadow-sm">
-                <h3 className="mb-3 text-xl font-semibold">
-                  Premium Equipment
-                </h3>
-                <p className="text-gray-600">
-                  High-quality cameras and professional lighting for stunning
-                  photos every time.
-                </p>
-              </div>
-              <div className="rounded-xl bg-white p-8 shadow-sm">
-                <h3 className="mb-3 text-xl font-semibold">Custom Branding</h3>
-                <p className="text-gray-600">
-                  Personalize your photo booth experience with custom overlays,
-                  backdrops, and prints.
-                </p>
-              </div>
-              <div className="rounded-xl bg-white p-8 shadow-sm">
-                <h3 className="mb-3 text-xl font-semibold">Instant Sharing</h3>
-                <p className="text-gray-600">
-                  Share photos instantly via text, email, or social media right
-                  from the booth.
-                </p>
-              </div>
-            </div>
+        {/* ── Hero Section ── */}
+        <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-desert-sand px-6 text-center">
+          {/* Decorative arch */}
+          <div className="pointer-events-none absolute inset-0 flex items-end justify-center">
+            <div className="h-[70%] w-[min(600px,90vw)] rounded-t-full border border-sunlit-clay/20" />
           </div>
-        </section>
 
-        {/* Social Proof Section */}
-        <section className="px-4 py-20">
-          <div className="mx-auto max-w-5xl">
-            <h2 className="mb-12 text-center text-3xl font-bold">
-              What Our Clients Say
-            </h2>
-            <div className="grid gap-8 md:grid-cols-2">
-              <blockquote className="rounded-xl bg-gray-50 p-8">
-                <p className="mb-4 text-gray-700">
-                  &quot;Placeholder testimonial - your real client testimonials
-                  will go here.&quot;
-                </p>
-                <footer className="font-semibold text-gray-900">
-                  - Client Name, Event Type
-                </footer>
-              </blockquote>
-              <blockquote className="rounded-xl bg-gray-50 p-8">
-                <p className="mb-4 text-gray-700">
-                  &quot;Another placeholder testimonial - swap with real feedback
-                  from happy clients.&quot;
-                </p>
-                <footer className="font-semibold text-gray-900">
-                  - Client Name, Event Type
-                </footer>
-              </blockquote>
-            </div>
+          {/* Sun motif */}
+          <div className="pointer-events-none absolute top-12 left-1/2 -translate-x-1/2">
+            <div className="h-28 w-28 rounded-full bg-desert-glow/25 blur-2xl" />
+            <div className="absolute inset-4 rounded-full border border-desert-glow/30" />
           </div>
-        </section>
 
-        {/* CTA Section */}
-        <section className="bg-blue-600 px-4 py-20">
-          <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
-            <h2 className="mb-4 text-3xl font-bold text-white">
-              Ready to Book Your Photo Booth?
-            </h2>
-            <p className="mb-8 text-lg text-blue-100">
-              Get in touch today and make your next event unforgettable.
+          {/* Content */}
+          <div className="relative z-10 mx-auto max-w-3xl">
+            <p className="mb-4 font-accent text-lg tracking-widest text-sunlit-clay uppercase">
+              Unfiltered Rays
             </p>
-            <EmailCaptureForm />
+            <h1 className="mb-6 font-heading text-5xl leading-tight tracking-tight text-espresso sm:text-6xl md:text-7xl">
+              Photo Booth Experiences,{' '}
+              <span className="italic text-almond">Elevated</span>
+            </h1>
+            <p className="mx-auto mb-10 max-w-xl font-subheading text-lg leading-relaxed text-almond/80 sm:text-xl">
+              Bringing golden-hour warmth and effortless elegance to every
+              celebration. Premium photo booths for the moments that matter.
+            </p>
+            <a
+              href="#contact"
+              className="inline-block rounded-full bg-espresso px-10 py-4 font-subheading text-base tracking-wide text-desert-sand transition-all duration-300 hover:bg-almond hover:shadow-lg"
+            >
+              Let&rsquo;s Create Something Beautiful
+            </a>
+          </div>
+
+          {/* Scroll indicator */}
+          <div className="absolute bottom-10 left-1/2 -translate-x-1/2">
+            <div className="h-10 w-[1px] bg-gradient-to-b from-sunlit-clay/60 to-transparent" />
           </div>
         </section>
+
+        {/* Future sections will be added in subsequent phases */}
       </main>
     </>
   )
