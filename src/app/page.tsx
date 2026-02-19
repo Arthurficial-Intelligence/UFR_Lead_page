@@ -1,3 +1,4 @@
+import { ContactForm } from '@/components/email-capture-form'
 import { SITE_CONFIG } from '@/lib/constants'
 
 const jsonLd = {
@@ -314,6 +315,71 @@ export default function HomePage() {
                   Receive your full digital gallery within 48 hours. Share,
                   print, and relive the magic whenever you want.
                 </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Brand Statement ── */}
+        <section className="relative overflow-hidden bg-espresso px-6 py-28 sm:py-36">
+          {/* Decorative arches */}
+          <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-[0.06]">
+            <div className="h-[500px] w-[500px] rounded-full border border-desert-sand" />
+            <div className="absolute h-[350px] w-[350px] rounded-full border border-desert-sand" />
+          </div>
+
+          <div className="relative z-10 mx-auto max-w-3xl text-center">
+            <div className="mx-auto mb-8 flex items-center justify-center gap-3">
+              <div className="h-[1px] w-12 bg-desert-glow/40" />
+              <div className="h-2 w-2 rounded-full bg-desert-glow/50" />
+              <div className="h-[1px] w-12 bg-desert-glow/40" />
+            </div>
+            <blockquote className="mb-8 font-heading text-3xl leading-snug text-desert-sand sm:text-4xl md:text-5xl">
+              &ldquo;We don&rsquo;t just capture moments, we create them.
+              Warm, golden, and unapologetically beautiful.&rdquo;
+            </blockquote>
+            <p className="font-subheading text-sm tracking-widest text-desert-glow uppercase">
+              The Unfiltered Rays Promise
+            </p>
+          </div>
+        </section>
+
+        {/* ── Contact Form ── */}
+        <section id="contact" className="bg-white px-6 py-28 sm:py-36">
+          <div className="mx-auto max-w-5xl">
+            <div className="grid gap-16 lg:grid-cols-2 lg:items-start">
+              {/* Left column — copy */}
+              <div>
+                <p className="mb-4 font-subheading text-sm tracking-widest text-sunlit-clay uppercase">
+                  Get in Touch
+                </p>
+                <h2 className="mb-6 font-heading text-4xl text-espresso sm:text-5xl">
+                  Let&rsquo;s Make It Happen
+                </h2>
+                <p className="mb-8 max-w-md leading-relaxed text-almond/70">
+                  Whether you have a date locked in or you&rsquo;re still
+                  dreaming it up — we&rsquo;d love to hear from you. Tell us
+                  about your event, and we&rsquo;ll take care of the rest.
+                </p>
+                <div className="space-y-4 text-sm text-almond/60">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-desert-sand">
+                      <span className="text-sunlit-clay">@</span>
+                    </div>
+                    <span>{SITE_CONFIG.contact.email}</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-desert-sand">
+                      <span className="text-sunlit-clay">#</span>
+                    </div>
+                    <span>{SITE_CONFIG.contact.phone}</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right column — form */}
+              <div className="rounded-3xl bg-desert-sand/20 p-8 sm:p-10">
+                <ContactForm />
               </div>
             </div>
           </div>
