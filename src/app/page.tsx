@@ -385,7 +385,52 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Future sections will be added in subsequent phases */}
+        {/* ── Footer ── */}
+        <footer className="bg-espresso px-6 py-16">
+          <div className="mx-auto max-w-5xl">
+            <div className="mb-12 grid gap-10 sm:grid-cols-3">
+              {/* Brand */}
+              <div>
+                <p className="mb-3 font-heading text-2xl text-desert-sand">
+                  Unfiltered Rays
+                </p>
+                <p className="text-sm leading-relaxed text-desert-sand/50">
+                  Premium photo booth experiences for the moments that matter.
+                </p>
+              </div>
+
+              {/* Quick links */}
+              <div>
+                <p className="mb-3 font-subheading text-xs tracking-widest text-desert-glow uppercase">
+                  Explore
+                </p>
+                <nav className="flex flex-col gap-2 text-sm text-desert-sand/60">
+                  <a href="#" className="transition-colors hover:text-desert-sand">Our Offerings</a>
+                  <a href="#" className="transition-colors hover:text-desert-sand">How It Works</a>
+                  <a href="#contact" className="transition-colors hover:text-desert-sand">Get in Touch</a>
+                </nav>
+              </div>
+
+              {/* Contact */}
+              <div>
+                <p className="mb-3 font-subheading text-xs tracking-widest text-desert-glow uppercase">
+                  Contact
+                </p>
+                <div className="flex flex-col gap-2 text-sm text-desert-sand/60">
+                  <span>{SITE_CONFIG.contact.email}</span>
+                  <span>{SITE_CONFIG.contact.phone}</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Divider + copyright */}
+            <div className="border-t border-desert-sand/10 pt-8 text-center">
+              <p className="text-xs text-desert-sand/40">
+                &copy; {new Date().getFullYear()} Unfiltered Rays. All rights reserved.
+              </p>
+            </div>
+          </div>
+        </footer>
       </main>
     </>
   )
