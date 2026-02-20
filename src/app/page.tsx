@@ -17,7 +17,16 @@ const jsonLd = {
     addressCountry: SITE_CONFIG.address.country,
   },
   priceRange: '$$',
-  serviceType: 'Photo Booth Rental',
+  serviceType: [
+    'Luxury Photo Booth Rental',
+    'Vintage Photo Booth',
+    'Wedding Photo Booth',
+    'Corporate Photo Booth Activation',
+  ],
+  areaServed: SITE_CONFIG.serviceAreas.map((city) => ({
+    '@type': 'City',
+    name: `${city}, TN`,
+  })),
 }
 
 export default function HomePage() {
@@ -378,8 +387,7 @@ export default function HomePage() {
                   Explore
                 </p>
                 <nav className="flex flex-col gap-2 text-sm text-desert-sand/60">
-                  <a href="#" className="transition-colors hover:text-desert-sand">Our Offerings</a>
-                  <a href="#" className="transition-colors hover:text-desert-sand">How It Works</a>
+                  <a href="#collections" className="transition-colors hover:text-desert-sand">Our Collections</a>
                   <a href="#contact" className="transition-colors hover:text-desert-sand">Get in Touch</a>
                 </nav>
               </div>
@@ -394,6 +402,16 @@ export default function HomePage() {
                   <span>{SITE_CONFIG.contact.phone}</span>
                 </div>
               </div>
+            </div>
+
+            {/* Service areas */}
+            <div className="mb-8 text-center">
+              <p className="mb-2 font-subheading text-xs tracking-widest text-desert-glow/60 uppercase">
+                Serving
+              </p>
+              <p className="text-sm text-desert-sand/40">
+                {SITE_CONFIG.serviceAreas.join(' · ')}
+              </p>
             </div>
 
             {/* Divider + copyright */}
