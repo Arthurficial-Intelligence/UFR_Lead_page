@@ -112,63 +112,30 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ── What Makes Us Different ── */}
+        {/* ── Designed With Intention ── */}
         <section className="bg-desert-sand/40 px-6 py-28 sm:py-36">
-          <div className="mx-auto max-w-6xl">
-            <div className="mb-16 text-center">
-              <p className="mb-4 font-subheading text-sm tracking-widest text-sunlit-clay uppercase">
-                The Unfiltered Difference
-              </p>
-              <h2 className="font-heading text-4xl text-espresso sm:text-5xl">
-                Not Your Average Photo Booth
-              </h2>
-            </div>
-
-            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-              {/* Card 1 */}
-              <div className="group rounded-3xl bg-white p-10 transition-shadow duration-300 hover:shadow-lg">
-                <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-full bg-desert-sand">
-                  <span className="font-heading text-2xl text-sunlit-clay">01</span>
-                </div>
-                <h3 className="mb-3 font-heading text-xl text-espresso">
-                  Design-Led Aesthetic
-                </h3>
-                <p className="leading-relaxed text-almond/70">
-                  Every detail is intentional, from the booth styling to the
-                  photo overlays. Our setups are designed to complement your
-                  event&rsquo;s look and feel, never clash with it.
-                </p>
-              </div>
-
-              {/* Card 2 */}
-              <div className="group rounded-3xl bg-white p-10 transition-shadow duration-300 hover:shadow-lg">
-                <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-full bg-desert-sand">
-                  <span className="font-heading text-2xl text-sunlit-clay">02</span>
-                </div>
-                <h3 className="mb-3 font-heading text-xl text-espresso">
-                  Effortless &amp; Hands-Free
-                </h3>
-                <p className="leading-relaxed text-almond/70">
-                  We handle every detail, setup, operation, and tear-down.
-                  You and your guests simply show up and enjoy the experience.
-                  No stress, just magic.
-                </p>
-              </div>
-
-              {/* Card 3 */}
-              <div className="group rounded-3xl bg-white p-10 transition-shadow duration-300 hover:shadow-lg sm:col-span-2 lg:col-span-1">
-                <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-full bg-desert-sand">
-                  <span className="font-heading text-2xl text-sunlit-clay">03</span>
-                </div>
-                <h3 className="mb-3 font-heading text-xl text-espresso">
-                  Keepsakes That Last
-                </h3>
-                <p className="leading-relaxed text-almond/70">
-                  Instant high-quality prints, a curated digital gallery, and
-                  shareable content your guests will actually love, not just
-                  another blurry phone photo.
-                </p>
-              </div>
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="mb-8 font-heading text-4xl leading-snug text-espresso sm:text-5xl">
+              Designed With Intention
+            </h2>
+            <p className="mx-auto mb-6 max-w-2xl text-lg leading-relaxed text-almond/80">
+              From initial consultation to final gallery delivery, every
+              touchpoint reflects care and deliberation. We do not interrupt the
+              moment. We preserve it.
+            </p>
+            <p className="mx-auto mb-6 max-w-2xl text-lg leading-relaxed text-almond/80">
+              Our handcrafted booth, refined styling, and custom design
+              integration create an environment where guests feel comfortable,
+              natural, and entirely themselves.
+            </p>
+            <p className="mx-auto max-w-2xl text-lg leading-relaxed text-almond/80">
+              The result is not performance. It is presence.
+            </p>
+            {/* Decorative divider */}
+            <div className="mx-auto mt-12 flex items-center justify-center gap-3">
+              <div className="h-[1px] w-12 bg-desert-glow/40" />
+              <div className="h-2 w-2 rounded-full bg-desert-glow/60" />
+              <div className="h-[1px] w-12 bg-desert-glow/40" />
             </div>
           </div>
         </section>
