@@ -155,24 +155,76 @@ export default function HomePage() {
 
             <CollectionCards />
 
-            {/* Retainer note */}
-            <p className="mt-10 text-center text-sm leading-relaxed text-almond/50">
-              A 50% retainer secures your date, with the remaining balance due
-              30 days prior to your event.
-            </p>
           </div>
         </section>
 
-        {/* ── The Experience / Process ── */}
+        {/* ── Weddings ── */}
+        <section className="bg-desert-sand/40 px-6 py-28 sm:py-36">
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="mb-8 font-heading text-4xl leading-snug text-espresso sm:text-5xl">
+              For Weddings
+            </h2>
+            <p className="mx-auto mb-6 max-w-2xl text-lg leading-relaxed text-almond/80">
+              Your wedding day deserves presence, not production.
+            </p>
+            <p className="mx-auto mb-6 max-w-2xl text-lg leading-relaxed text-almond/80">
+              We integrate seamlessly into your celebration, preserving moments
+              without distraction.
+            </p>
+            <p className="mx-auto mb-6 max-w-2xl text-lg leading-relaxed text-almond/80">
+              Our approach is understated, refined, and designed to complement
+              the aesthetic of your venue and the rhythm of your evening.
+            </p>
+            <p className="mx-auto max-w-2xl text-lg leading-relaxed text-almond/80">
+              The images feel natural because they are.
+            </p>
+            {/* Decorative divider */}
+            <div className="mx-auto mt-12 flex items-center justify-center gap-3">
+              <div className="h-[1px] w-12 bg-desert-glow/40" />
+              <div className="h-2 w-2 rounded-full bg-desert-glow/60" />
+              <div className="h-[1px] w-12 bg-desert-glow/40" />
+            </div>
+          </div>
+        </section>
+
+        {/* ── Corporate ── */}
+        <section className="bg-white px-6 py-28 sm:py-36">
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="mb-8 font-heading text-4xl leading-snug text-espresso sm:text-5xl">
+              The Corporate Atelier
+            </h2>
+            <p className="mx-auto mb-6 max-w-2xl text-lg leading-relaxed text-almond/80">
+              Designed for brands and organizations seeking immersive, elevated
+              experiential activations.
+            </p>
+            <p className="mx-auto mb-6 max-w-2xl text-lg leading-relaxed text-almond/80">
+              We create refined photo environments aligned with your visual
+              identity while preserving authentic engagement. From custom
+              overlays to intentional environmental styling, each activation is
+              thoughtfully executed.
+            </p>
+            <p className="mx-auto max-w-2xl font-subheading text-sm tracking-wide text-sunlit-clay">
+              Custom quoted.
+            </p>
+            {/* Decorative divider */}
+            <div className="mx-auto mt-12 flex items-center justify-center gap-3">
+              <div className="h-[1px] w-12 bg-desert-glow/40" />
+              <div className="h-2 w-2 rounded-full bg-desert-glow/60" />
+              <div className="h-[1px] w-12 bg-desert-glow/40" />
+            </div>
+          </div>
+        </section>
+
+        {/* ── Our Approach ── */}
         <section className="bg-desert-sand/40 px-6 py-28 sm:py-36">
           <div className="mx-auto max-w-5xl">
             <div className="mb-20 text-center">
-              <p className="mb-4 font-subheading text-sm tracking-widest text-sunlit-clay uppercase">
-                How It Works
-              </p>
-              <h2 className="font-heading text-4xl text-espresso sm:text-5xl">
-                From Inquiry to Unforgettable
+              <h2 className="mb-4 font-heading text-4xl text-espresso sm:text-5xl">
+                Our Approach
               </h2>
+              <p className="mx-auto max-w-xl text-lg leading-relaxed text-almond/80">
+                Calm. Seamless. Intentional.
+              </p>
             </div>
 
             <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
@@ -182,12 +234,8 @@ export default function HomePage() {
                   <span className="font-heading text-3xl text-sunlit-clay">1</span>
                 </div>
                 <h3 className="mb-2 font-heading text-lg text-espresso">
-                  Inquire
+                  Inquiry
                 </h3>
-                <p className="text-sm leading-relaxed text-almond/70">
-                  Tell us about your event, your vision, and the vibe
-                  you&rsquo;re going for. We&rsquo;ll take it from there.
-                </p>
               </div>
 
               {/* Step 2 */}
@@ -196,12 +244,8 @@ export default function HomePage() {
                   <span className="font-heading text-3xl text-sunlit-clay">2</span>
                 </div>
                 <h3 className="mb-2 font-heading text-lg text-espresso">
-                  Plan
+                  Design Consultation
                 </h3>
-                <p className="text-sm leading-relaxed text-almond/70">
-                  We&rsquo;ll design a custom package, backdrops, overlays,
-                  prints, and all the details, to match your event perfectly.
-                </p>
               </div>
 
               {/* Step 3 */}
@@ -210,12 +254,8 @@ export default function HomePage() {
                   <span className="font-heading text-3xl text-sunlit-clay">3</span>
                 </div>
                 <h3 className="mb-2 font-heading text-lg text-espresso">
-                  Experience
+                  Event Day Presence
                 </h3>
-                <p className="text-sm leading-relaxed text-almond/70">
-                  On the day, we set up, run, and break down. You just enjoy
-                  watching your guests light up.
-                </p>
               </div>
 
               {/* Step 4 */}
@@ -224,12 +264,8 @@ export default function HomePage() {
                   <span className="font-heading text-3xl text-sunlit-clay">4</span>
                 </div>
                 <h3 className="mb-2 font-heading text-lg text-espresso">
-                  Relive
+                  Gallery Delivery
                 </h3>
-                <p className="text-sm leading-relaxed text-almond/70">
-                  Receive your full digital gallery within 48 hours. Share,
-                  print, and relive the magic whenever you want.
-                </p>
               </div>
             </div>
           </div>
@@ -256,6 +292,28 @@ export default function HomePage() {
             <p className="font-subheading text-sm tracking-widest text-desert-glow uppercase">
               The Unfiltered Rays Promise
             </p>
+          </div>
+        </section>
+
+        {/* ── Investment ── */}
+        <section className="bg-white px-6 py-28 sm:py-36">
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="mb-8 font-heading text-4xl leading-snug text-espresso sm:text-5xl">
+              Investment
+            </h2>
+            <p className="mx-auto mb-6 max-w-2xl text-lg leading-relaxed text-almond/80">
+              Our collections begin at $995.
+            </p>
+            <p className="mx-auto max-w-2xl text-lg leading-relaxed text-almond/80">
+              A 50% retainer secures your date, with the remaining balance due
+              30 days prior to your event.
+            </p>
+            {/* Decorative divider */}
+            <div className="mx-auto mt-12 flex items-center justify-center gap-3">
+              <div className="h-[1px] w-12 bg-desert-glow/40" />
+              <div className="h-2 w-2 rounded-full bg-desert-glow/60" />
+              <div className="h-[1px] w-12 bg-desert-glow/40" />
+            </div>
           </div>
         </section>
 
