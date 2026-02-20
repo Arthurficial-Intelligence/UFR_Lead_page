@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { ContactForm } from '@/components/email-capture-form'
 import { CollectionCards } from '@/components/collections-dropdown'
 import { SITE_CONFIG } from '@/lib/constants'
@@ -85,36 +86,75 @@ export default function HomePage() {
           <div className="absolute bottom-10 left-1/2 -translate-x-1/2">
             <div className="h-10 w-[1px] bg-gradient-to-b from-sunlit-clay/60 to-transparent" />
           </div>
+
+          {/* Hero accent images — flanking on large screens */}
+          <div className="pointer-events-none absolute bottom-0 left-0 hidden h-[60%] w-[22%] overflow-hidden rounded-tr-[3rem] opacity-30 xl:block">
+            <Image
+              src="/images/hero-couple.jpg"
+              alt=""
+              fill
+              className="object-cover"
+              sizes="22vw"
+              priority
+              aria-hidden="true"
+            />
+          </div>
+          <div className="pointer-events-none absolute bottom-0 right-0 hidden h-[60%] w-[22%] overflow-hidden rounded-tl-[3rem] opacity-30 xl:block">
+            <Image
+              src="/images/toast-intimate.jpg"
+              alt=""
+              fill
+              className="object-cover"
+              sizes="22vw"
+              priority
+              aria-hidden="true"
+            />
+          </div>
         </section>
 
         {/* ── Brand Positioning ── */}
         <section className="bg-white px-6 py-28 sm:py-36">
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="mb-4 font-subheading text-sm tracking-widest text-sunlit-clay uppercase">
-              Our Philosophy
-            </p>
-            <h2 className="mb-8 font-heading text-4xl leading-snug text-espresso sm:text-5xl">
-              A Calm Presence.
-              <br />
-              An Elevated Experience.
-            </h2>
-            <p className="mx-auto mb-6 max-w-2xl text-lg leading-relaxed text-almond/80">
-              Unfiltered Rays is a refined photo experience rooted in
-              authenticity and intention. We preserve genuine connection with
-              thoughtful design and quiet professionalism, capturing
-              celebrations exactly as they unfold.
-            </p>
-            <p className="mx-auto mb-6 max-w-2xl text-lg leading-relaxed text-almond/80">
-              We believe the most meaningful moments are unposed. The subtle
-              glances. The shared laughter. The in-between exchanges that feel
-              most like home.
-            </p>
-            <p className="mx-auto max-w-2xl text-lg leading-relaxed text-almond/80">
-              Our presence is steady. Our approach is considered. Every detail
-              is curated to feel seamless and enduring.
-            </p>
+          <div className="mx-auto max-w-5xl">
+            <div className="grid items-center gap-16 lg:grid-cols-2">
+              {/* Image */}
+              <div className="relative mx-auto aspect-[3/4] w-full max-w-md overflow-hidden rounded-3xl">
+                <Image
+                  src="/images/positioning-moment.jpg"
+                  alt="An intimate, unposed moment between a couple at a photo booth experience"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
+              {/* Copy */}
+              <div className="text-center lg:text-left">
+                <p className="mb-4 font-subheading text-sm tracking-widest text-sunlit-clay uppercase">
+                  Our Philosophy
+                </p>
+                <h2 className="mb-8 font-heading text-4xl leading-snug text-espresso sm:text-5xl">
+                  A Calm Presence.
+                  <br />
+                  An Elevated Experience.
+                </h2>
+                <p className="mb-6 text-lg leading-relaxed text-almond/80">
+                  Unfiltered Rays is a refined photo experience rooted in
+                  authenticity and intention. We preserve genuine connection with
+                  thoughtful design and quiet professionalism, capturing
+                  celebrations exactly as they unfold.
+                </p>
+                <p className="mb-6 text-lg leading-relaxed text-almond/80">
+                  We believe the most meaningful moments are unposed. The subtle
+                  glances. The shared laughter. The in-between exchanges that feel
+                  most like home.
+                </p>
+                <p className="text-lg leading-relaxed text-almond/80">
+                  Our presence is steady. Our approach is considered. Every detail
+                  is curated to feel seamless and enduring.
+                </p>
+              </div>
+            </div>
             {/* Decorative divider */}
-            <div className="mx-auto mt-12 flex items-center justify-center gap-3">
+            <div className="mx-auto mt-16 flex items-center justify-center gap-3">
               <div className="h-[1px] w-12 bg-desert-glow/40" />
               <div className="h-2 w-2 rounded-full bg-desert-glow/60" />
               <div className="h-[1px] w-12 bg-desert-glow/40" />
@@ -124,25 +164,40 @@ export default function HomePage() {
 
         {/* ── Designed With Intention ── */}
         <section className="bg-desert-sand/40 px-6 py-28 sm:py-36">
-          <div className="mx-auto max-w-3xl text-center">
-            <h2 className="mb-8 font-heading text-4xl leading-snug text-espresso sm:text-5xl">
-              Designed With Intention
-            </h2>
-            <p className="mx-auto mb-6 max-w-2xl text-lg leading-relaxed text-almond/80">
-              From initial consultation to final gallery delivery, every
-              touchpoint reflects care and deliberation. We do not interrupt the
-              moment. We preserve it.
-            </p>
-            <p className="mx-auto mb-6 max-w-2xl text-lg leading-relaxed text-almond/80">
-              Our handcrafted booth, refined styling, and custom design
-              integration create an environment where guests feel comfortable,
-              natural, and entirely themselves.
-            </p>
-            <p className="mx-auto max-w-2xl text-lg leading-relaxed text-almond/80">
-              The result is not performance. It is presence.
-            </p>
+          <div className="mx-auto max-w-5xl">
+            <div className="grid items-center gap-16 lg:grid-cols-2">
+              {/* Copy */}
+              <div className="text-center lg:text-left">
+                <h2 className="mb-8 font-heading text-4xl leading-snug text-espresso sm:text-5xl">
+                  Designed With Intention
+                </h2>
+                <p className="mb-6 text-lg leading-relaxed text-almond/80">
+                  From initial consultation to final gallery delivery, every
+                  touchpoint reflects care and deliberation. We do not interrupt the
+                  moment. We preserve it.
+                </p>
+                <p className="mb-6 text-lg leading-relaxed text-almond/80">
+                  Our handcrafted booth, refined styling, and custom design
+                  integration create an environment where guests feel comfortable,
+                  natural, and entirely themselves.
+                </p>
+                <p className="text-lg leading-relaxed text-almond/80">
+                  The result is not performance. It is presence.
+                </p>
+              </div>
+              {/* Image */}
+              <div className="relative mx-auto aspect-[3/4] w-full max-w-md overflow-hidden rounded-3xl">
+                <Image
+                  src="/images/intention-keepsake.jpg"
+                  alt="Hands holding elegant photo booth prints alongside a cocktail"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
+            </div>
             {/* Decorative divider */}
-            <div className="mx-auto mt-12 flex items-center justify-center gap-3">
+            <div className="mx-auto mt-16 flex items-center justify-center gap-3">
               <div className="h-[1px] w-12 bg-desert-glow/40" />
               <div className="h-2 w-2 rounded-full bg-desert-glow/60" />
               <div className="h-[1px] w-12 bg-desert-glow/40" />
@@ -153,6 +208,18 @@ export default function HomePage() {
         {/* ── Collections ── */}
         <section id="collections" className="bg-white px-6 py-28 sm:py-36">
           <div className="mx-auto max-w-6xl">
+            {/* Featured image */}
+            <div className="relative mx-auto mb-16 aspect-[21/9] w-full max-w-4xl overflow-hidden rounded-3xl">
+              <Image
+                src="/images/collections-experience.jpg"
+                alt="Couple admiring their photo booth strip together"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 900px"
+                priority
+              />
+            </div>
+
             <div className="mb-16 text-center">
               <h2 className="mb-4 font-heading text-4xl text-espresso sm:text-5xl">
                 Our Collections
@@ -169,26 +236,52 @@ export default function HomePage() {
 
         {/* ── Weddings ── */}
         <section className="bg-desert-sand/40 px-6 py-28 sm:py-36">
-          <div className="mx-auto max-w-3xl text-center">
-            <h2 className="mb-8 font-heading text-4xl leading-snug text-espresso sm:text-5xl">
-              For Weddings
-            </h2>
-            <p className="mx-auto mb-6 max-w-2xl text-lg leading-relaxed text-almond/80">
-              Your wedding day deserves presence, not production.
-            </p>
-            <p className="mx-auto mb-6 max-w-2xl text-lg leading-relaxed text-almond/80">
-              We integrate seamlessly into your celebration, preserving moments
-              without distraction.
-            </p>
-            <p className="mx-auto mb-6 max-w-2xl text-lg leading-relaxed text-almond/80">
-              Our approach is understated, refined, and designed to complement
-              the aesthetic of your venue and the rhythm of your evening.
-            </p>
-            <p className="mx-auto max-w-2xl text-lg leading-relaxed text-almond/80">
-              The images feel natural because they are.
-            </p>
+          <div className="mx-auto max-w-5xl">
+            <div className="grid items-center gap-16 lg:grid-cols-2">
+              {/* Image pair */}
+              <div className="grid grid-cols-2 gap-4">
+                <div className="relative aspect-[3/4] overflow-hidden rounded-2xl">
+                  <Image
+                    src="/images/wedding-couple.jpg"
+                    alt="Couple sharing a joyful laugh during their photo booth session"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 50vw, 25vw"
+                  />
+                </div>
+                <div className="relative mt-8 aspect-[3/4] overflow-hidden rounded-2xl">
+                  <Image
+                    src="/images/wedding-details.jpg"
+                    alt="Wedding keepsake details with photo booth strips"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 50vw, 25vw"
+                  />
+                </div>
+              </div>
+              {/* Copy */}
+              <div className="text-center lg:text-left">
+                <h2 className="mb-8 font-heading text-4xl leading-snug text-espresso sm:text-5xl">
+                  For Weddings
+                </h2>
+                <p className="mb-6 text-lg leading-relaxed text-almond/80">
+                  Your wedding day deserves presence, not production.
+                </p>
+                <p className="mb-6 text-lg leading-relaxed text-almond/80">
+                  We integrate seamlessly into your celebration, preserving moments
+                  without distraction.
+                </p>
+                <p className="mb-6 text-lg leading-relaxed text-almond/80">
+                  Our approach is understated, refined, and designed to complement
+                  the aesthetic of your venue and the rhythm of your evening.
+                </p>
+                <p className="text-lg leading-relaxed text-almond/80">
+                  The images feel natural because they are.
+                </p>
+              </div>
+            </div>
             {/* Decorative divider */}
-            <div className="mx-auto mt-12 flex items-center justify-center gap-3">
+            <div className="mx-auto mt-16 flex items-center justify-center gap-3">
               <div className="h-[1px] w-12 bg-desert-glow/40" />
               <div className="h-2 w-2 rounded-full bg-desert-glow/60" />
               <div className="h-[1px] w-12 bg-desert-glow/40" />
@@ -198,25 +291,40 @@ export default function HomePage() {
 
         {/* ── Corporate ── */}
         <section className="bg-white px-6 py-28 sm:py-36">
-          <div className="mx-auto max-w-3xl text-center">
-            <h2 className="mb-8 font-heading text-4xl leading-snug text-espresso sm:text-5xl">
-              The Corporate Atelier
-            </h2>
-            <p className="mx-auto mb-6 max-w-2xl text-lg leading-relaxed text-almond/80">
-              Designed for brands and organizations seeking immersive, elevated
-              experiential activations.
-            </p>
-            <p className="mx-auto mb-6 max-w-2xl text-lg leading-relaxed text-almond/80">
-              We create refined photo environments aligned with your visual
-              identity while preserving authentic engagement. From custom
-              overlays to intentional environmental styling, each activation is
-              thoughtfully executed.
-            </p>
-            <p className="mx-auto max-w-2xl font-subheading text-sm tracking-wide text-sunlit-clay">
-              Custom quoted.
-            </p>
+          <div className="mx-auto max-w-5xl">
+            <div className="grid items-center gap-16 lg:grid-cols-2">
+              {/* Copy */}
+              <div className="text-center lg:text-left">
+                <h2 className="mb-8 font-heading text-4xl leading-snug text-espresso sm:text-5xl">
+                  The Corporate Atelier
+                </h2>
+                <p className="mb-6 text-lg leading-relaxed text-almond/80">
+                  Designed for brands and organizations seeking immersive, elevated
+                  experiential activations.
+                </p>
+                <p className="mb-6 text-lg leading-relaxed text-almond/80">
+                  We create refined photo environments aligned with your visual
+                  identity while preserving authentic engagement. From custom
+                  overlays to intentional environmental styling, each activation is
+                  thoughtfully executed.
+                </p>
+                <p className="font-subheading text-sm tracking-wide text-sunlit-clay">
+                  Custom quoted.
+                </p>
+              </div>
+              {/* Image */}
+              <div className="relative mx-auto aspect-[3/4] w-full max-w-md overflow-hidden rounded-3xl">
+                <Image
+                  src="/images/corporate-portrait.jpg"
+                  alt="Polished professional portrait at an elevated corporate activation"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
+            </div>
             {/* Decorative divider */}
-            <div className="mx-auto mt-12 flex items-center justify-center gap-3">
+            <div className="mx-auto mt-16 flex items-center justify-center gap-3">
               <div className="h-[1px] w-12 bg-desert-glow/40" />
               <div className="h-2 w-2 rounded-full bg-desert-glow/60" />
               <div className="h-[1px] w-12 bg-desert-glow/40" />
@@ -280,8 +388,41 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* ── Gallery Strip ── */}
+        <section className="bg-white py-4">
+          <div className="flex gap-4 overflow-hidden px-4">
+            {[
+              { src: '/images/social-celebration.jpg', alt: 'Friends celebrating with champagne at a photo booth' },
+              { src: '/images/toast-couple.jpg', alt: 'Couple sharing a toast at a photo booth event' },
+              { src: '/images/social-trio.jpg', alt: 'Three friends posing together at a celebration' },
+              { src: '/images/couple-embrace.jpg', alt: 'Couple in an intimate embrace during a photo session' },
+              { src: '/images/social-group-champagne.jpg', alt: 'Group of friends with champagne glasses' },
+              { src: '/images/printed-keepsake.jpg', alt: 'Custom photo booth print keepsake card' },
+            ].map((img) => (
+              <div key={img.src} className="relative aspect-[4/5] w-48 shrink-0 overflow-hidden rounded-2xl sm:w-56 md:w-64">
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  className="object-cover"
+                  sizes="256px"
+                />
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* ── Brand Statement ── */}
         <section className="relative overflow-hidden bg-espresso px-6 py-28 sm:py-36">
+          {/* Background image */}
+          <Image
+            src="/images/brand-couple.jpg"
+            alt=""
+            fill
+            className="object-cover opacity-15"
+            sizes="100vw"
+            aria-hidden="true"
+          />
           {/* Decorative arches */}
           <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-[0.06]">
             <div className="h-[500px] w-[500px] rounded-full border border-desert-sand" />
@@ -330,7 +471,7 @@ export default function HomePage() {
         <section id="contact" className="bg-white px-6 py-28 sm:py-36">
           <div className="mx-auto max-w-5xl">
             <div className="grid gap-16 lg:grid-cols-2 lg:items-start">
-              {/* Left column — copy */}
+              {/* Left column — copy + image */}
               <div>
                 <p className="mb-4 font-subheading text-sm tracking-widest text-sunlit-clay uppercase">
                   Get in Touch
@@ -343,7 +484,7 @@ export default function HomePage() {
                   dreaming it up, we&rsquo;d love to hear from you. Tell us
                   about your event, and we&rsquo;ll take care of the rest.
                 </p>
-                <div className="space-y-4 text-sm text-almond/60">
+                <div className="mb-8 space-y-4 text-sm text-almond/60">
                   <div className="flex items-center gap-3">
                     <div className="flex h-10 w-10 items-center justify-center rounded-full bg-desert-sand">
                       <span className="text-sunlit-clay">@</span>
@@ -356,6 +497,16 @@ export default function HomePage() {
                     </div>
                     <span>{SITE_CONFIG.contact.phone}</span>
                   </div>
+                </div>
+                {/* Contact image */}
+                <div className="relative hidden aspect-[4/3] overflow-hidden rounded-2xl lg:block">
+                  <Image
+                    src="/images/contact-viewing.jpg"
+                    alt="Guest smiling while viewing her photo booth prints"
+                    fill
+                    className="object-cover"
+                    sizes="500px"
+                  />
                 </div>
               </div>
 
