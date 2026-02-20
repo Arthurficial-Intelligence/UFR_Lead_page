@@ -43,23 +43,32 @@ export default function HomePage() {
 
           {/* Content */}
           <div className="relative z-10 mx-auto max-w-3xl">
-            <h1 className="mb-4 font-heading text-7xl leading-none tracking-tight text-espresso sm:text-8xl md:text-9xl">
+            <p className="mb-4 font-subheading text-lg tracking-widest text-sunlit-clay uppercase sm:text-xl">
               Unfiltered Rays
+            </p>
+            <h1 className="mb-6 font-heading text-5xl leading-tight tracking-tight text-espresso sm:text-6xl md:text-7xl">
+              Preserving the moment,
+              <br />
+              <span className="italic">as it is.</span>
             </h1>
-            <p className="mb-6 font-subheading text-lg tracking-widest text-sunlit-clay uppercase sm:text-xl">
-              Photo Booth Experiences,{' '}
-              <span className="italic">Elevated</span>
-            </p>
             <p className="mx-auto mb-10 max-w-xl font-subheading text-lg leading-relaxed text-almond/80 sm:text-xl">
-              Bringing golden-hour warmth and effortless elegance to every
-              celebration. Premium photo booths for the moments that matter.
+              Intentional, refined photo experiences for weddings and elevated
+              events.
             </p>
-            <a
-              href="#contact"
-              className="inline-block rounded-full bg-espresso px-10 py-4 font-subheading text-base tracking-wide text-desert-sand transition-all duration-300 hover:bg-almond hover:shadow-lg"
-            >
-              Let&rsquo;s Create Something Beautiful
-            </a>
+            <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+              <a
+                href="#contact"
+                className="inline-block rounded-full bg-espresso px-10 py-4 font-subheading text-base tracking-wide text-desert-sand transition-all duration-300 hover:bg-almond hover:shadow-lg"
+              >
+                Inquire
+              </a>
+              <a
+                href="#collections"
+                className="inline-block rounded-full border border-espresso/30 px-10 py-4 font-subheading text-base tracking-wide text-espresso transition-all duration-300 hover:bg-espresso/5"
+              >
+                View Collections
+              </a>
+            </div>
           </div>
 
           {/* Scroll indicator */}
@@ -75,13 +84,24 @@ export default function HomePage() {
               Our Philosophy
             </p>
             <h2 className="mb-8 font-heading text-4xl leading-snug text-espresso sm:text-5xl">
-              Where Warmth Meets Elegance
+              A Calm Presence.
+              <br />
+              An Elevated Experience.
             </h2>
+            <p className="mx-auto mb-6 max-w-2xl text-lg leading-relaxed text-almond/80">
+              Unfiltered Rays is a refined photo experience rooted in
+              authenticity and intention. We preserve genuine connection with
+              thoughtful design and quiet professionalism, capturing
+              celebrations exactly as they unfold.
+            </p>
+            <p className="mx-auto mb-6 max-w-2xl text-lg leading-relaxed text-almond/80">
+              We believe the most meaningful moments are unposed. The subtle
+              glances. The shared laughter. The in-between exchanges that feel
+              most like home.
+            </p>
             <p className="mx-auto max-w-2xl text-lg leading-relaxed text-almond/80">
-              We believe every celebration deserves a touch of magic. Unfiltered
-              Rays brings a curated, design-forward photo booth experience that
-              feels less like a rental and more like a moment — golden, warm,
-              and completely yours.
+              Our presence is steady. Our approach is considered. Every detail
+              is curated to feel seamless and enduring.
             </p>
             {/* Decorative divider */}
             <div className="mx-auto mt-12 flex items-center justify-center gap-3">
@@ -114,7 +134,7 @@ export default function HomePage() {
                   Design-Led Aesthetic
                 </h3>
                 <p className="leading-relaxed text-almond/70">
-                  Every detail is intentional — from the booth styling to the
+                  Every detail is intentional, from the booth styling to the
                   photo overlays. Our setups are designed to complement your
                   event&rsquo;s look and feel, never clash with it.
                 </p>
@@ -129,7 +149,7 @@ export default function HomePage() {
                   Effortless &amp; Hands-Free
                 </h3>
                 <p className="leading-relaxed text-almond/70">
-                  We handle every detail — setup, operation, and tear-down.
+                  We handle every detail, setup, operation, and tear-down.
                   You and your guests simply show up and enjoy the experience.
                   No stress, just magic.
                 </p>
@@ -145,7 +165,7 @@ export default function HomePage() {
                 </h3>
                 <p className="leading-relaxed text-almond/70">
                   Instant high-quality prints, a curated digital gallery, and
-                  shareable content your guests will actually love — not just
+                  shareable content your guests will actually love, not just
                   another blurry phone photo.
                 </p>
               </div>
@@ -154,7 +174,7 @@ export default function HomePage() {
         </section>
 
         {/* ── Our Offerings ── */}
-        <section className="bg-white px-6 py-28 sm:py-36">
+        <section id="collections" className="bg-white px-6 py-28 sm:py-36">
           <div className="mx-auto max-w-6xl">
             <div className="mb-16 text-center">
               <p className="mb-4 font-subheading text-sm tracking-widest text-sunlit-clay uppercase">
@@ -237,7 +257,7 @@ export default function HomePage() {
                     Custom &amp; Corporate
                   </h3>
                   <p className="leading-relaxed text-desert-sand/70">
-                    For brands, launches, and large-scale events — a fully
+                    For brands, launches, and large-scale events, a fully
                     branded experience from the ground up. Custom wraps,
                     on-screen branding, data capture, and premium add-ons
                     tailored to your vision.
@@ -284,8 +304,8 @@ export default function HomePage() {
                   Plan
                 </h3>
                 <p className="text-sm leading-relaxed text-almond/70">
-                  We&rsquo;ll design a custom package — backdrops, overlays,
-                  prints, and all the details — to match your event perfectly.
+                  We&rsquo;ll design a custom package, backdrops, overlays,
+                  prints, and all the details, to match your event perfectly.
                 </p>
               </div>
 
@@ -298,7 +318,7 @@ export default function HomePage() {
                   Experience
                 </h3>
                 <p className="text-sm leading-relaxed text-almond/70">
-                  On the day, we set up, run, and break down — you just enjoy
+                  On the day, we set up, run, and break down. You just enjoy
                   watching your guests light up.
                 </p>
               </div>
@@ -358,7 +378,7 @@ export default function HomePage() {
                 </h2>
                 <p className="mb-8 max-w-md leading-relaxed text-almond/70">
                   Whether you have a date locked in or you&rsquo;re still
-                  dreaming it up — we&rsquo;d love to hear from you. Tell us
+                  dreaming it up, we&rsquo;d love to hear from you. Tell us
                   about your event, and we&rsquo;ll take care of the rest.
                 </p>
                 <div className="space-y-4 text-sm text-almond/60">
