@@ -40,7 +40,7 @@ export default function HomePage() {
 
       <main className="min-h-screen">
         {/* ── Hero Section ── */}
-        <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-desert-sand px-6 text-center">
+        <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-desert-sand px-6">
           {/* Decorative arch */}
           <div className="pointer-events-none absolute inset-0 flex items-end justify-center">
             <div className="h-[70%] w-[min(600px,90vw)] rounded-t-full border border-sunlit-clay/20" />
@@ -54,7 +54,7 @@ export default function HomePage() {
 
           {/* Content */}
           <div className="relative z-10 mx-auto max-w-3xl">
-            <p className="mb-4 font-subheading text-lg tracking-widest text-sunlit-clay uppercase sm:text-xl">
+            <p className="mb-4 font-subheading text-lg font-light tracking-widest text-sunlit-clay uppercase sm:text-xl">
               Unfiltered Rays
             </p>
             <h1 className="mb-6 font-heading text-5xl leading-tight tracking-tight text-espresso sm:text-6xl md:text-7xl">
@@ -62,20 +62,20 @@ export default function HomePage() {
               <br />
               <span className="italic">as it is.</span>
             </h1>
-            <p className="mx-auto mb-10 max-w-xl font-subheading text-lg leading-relaxed text-almond/80 sm:text-xl">
+            <p className="mb-10 max-w-xl font-subheading text-lg font-light leading-relaxed text-almond/80 sm:text-xl">
               Intentional, refined photo experiences for weddings and elevated
               events.
             </p>
-            <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+            <div className="flex flex-col items-start gap-4 sm:flex-row">
               <a
                 href="#contact"
-                className="inline-block rounded-full bg-espresso px-10 py-4 font-subheading text-base tracking-wide text-desert-sand transition-all duration-300 hover:bg-almond hover:shadow-lg"
+                className="inline-block rounded border border-espresso px-10 py-4 font-subheading text-base tracking-wide text-espresso transition-colors duration-300 hover:bg-espresso hover:text-desert-sand"
               >
                 Inquire
               </a>
               <a
                 href="#collections"
-                className="inline-block rounded-full border border-espresso/30 px-10 py-4 font-subheading text-base tracking-wide text-espresso transition-all duration-300 hover:bg-espresso/5"
+                className="inline-block rounded border border-espresso/30 px-10 py-4 font-subheading text-base tracking-wide text-espresso transition-colors duration-300 hover:border-espresso"
               >
                 View Collections
               </a>
@@ -88,7 +88,7 @@ export default function HomePage() {
           </div>
 
           {/* Hero accent images — flanking on large screens */}
-          <div className="pointer-events-none absolute bottom-0 left-0 hidden h-[60%] w-[22%] overflow-hidden rounded-tr-[3rem] opacity-30 xl:block">
+          <div className="pointer-events-none absolute bottom-0 left-0 hidden h-[60%] w-[22%] overflow-hidden rounded-tr opacity-30 xl:block">
             <Image
               src="/images/hero-couple.jpg"
               alt=""
@@ -99,7 +99,7 @@ export default function HomePage() {
               aria-hidden="true"
             />
           </div>
-          <div className="pointer-events-none absolute bottom-0 right-0 hidden h-[60%] w-[22%] overflow-hidden rounded-tl-[3rem] opacity-30 xl:block">
+          <div className="pointer-events-none absolute bottom-0 right-0 hidden h-[60%] w-[22%] overflow-hidden rounded-tl opacity-30 xl:block">
             <Image
               src="/images/toast-intimate.jpg"
               alt=""
@@ -113,11 +113,11 @@ export default function HomePage() {
         </section>
 
         {/* ── Brand Positioning ── */}
-        <section className="bg-white px-6 py-28 sm:py-36">
+        <section className="bg-desert-sand/20 px-6 py-28 sm:py-36">
           <div className="mx-auto max-w-5xl">
             <div className="grid items-center gap-16 lg:grid-cols-2">
               {/* Image */}
-              <div className="relative mx-auto aspect-[3/4] w-full max-w-md overflow-hidden rounded-3xl">
+              <div className="relative mx-auto aspect-[3/4] w-full max-w-md overflow-hidden rounded">
                 <Image
                   src="/images/positioning-moment.jpg"
                   alt="An intimate, unposed moment between a couple at a photo booth experience"
@@ -127,8 +127,8 @@ export default function HomePage() {
                 />
               </div>
               {/* Copy */}
-              <div className="text-center lg:text-left">
-                <p className="mb-4 font-subheading text-sm tracking-widest text-sunlit-clay uppercase">
+              <div>
+                <p className="mb-4 font-subheading text-sm font-light tracking-widest text-sunlit-clay uppercase">
                   Our Philosophy
                 </p>
                 <h2 className="mb-8 font-heading text-4xl leading-snug text-espresso sm:text-5xl">
@@ -167,7 +167,7 @@ export default function HomePage() {
           <div className="mx-auto max-w-5xl">
             <div className="grid items-center gap-16 lg:grid-cols-2">
               {/* Copy */}
-              <div className="text-center lg:text-left">
+              <div>
                 <h2 className="mb-8 font-heading text-4xl leading-snug text-espresso sm:text-5xl">
                   Designed With Intention
                 </h2>
@@ -186,7 +186,7 @@ export default function HomePage() {
                 </p>
               </div>
               {/* Image */}
-              <div className="relative mx-auto aspect-[3/4] w-full max-w-md overflow-hidden rounded-3xl">
+              <div className="relative mx-auto aspect-[3/4] w-full max-w-md overflow-hidden rounded">
                 <Image
                   src="/images/intention-keepsake.jpg"
                   alt="Hands holding elegant photo booth prints alongside a cocktail"
@@ -206,10 +206,10 @@ export default function HomePage() {
         </section>
 
         {/* ── Collections ── */}
-        <section id="collections" className="bg-white px-6 py-28 sm:py-36">
+        <section id="collections" className="bg-desert-sand/20 px-6 py-28 sm:py-36">
           <div className="mx-auto max-w-6xl">
             {/* Featured image */}
-            <div className="relative mx-auto mb-16 aspect-[21/9] w-full max-w-4xl overflow-hidden rounded-3xl">
+            <div className="relative mx-auto mb-16 aspect-[21/9] w-full max-w-4xl overflow-hidden rounded">
               <Image
                 src="/images/collections-experience.jpg"
                 alt="Couple admiring their photo booth strip together"
@@ -220,11 +220,11 @@ export default function HomePage() {
               />
             </div>
 
-            <div className="mb-16 text-center">
+            <div className="mb-16">
               <h2 className="mb-4 font-heading text-4xl text-espresso sm:text-5xl">
                 Our Collections
               </h2>
-              <p className="mx-auto max-w-xl text-lg leading-relaxed text-almond/80">
+              <p className="max-w-xl text-lg leading-relaxed text-almond/80">
                 Three intentionally designed offerings for refined celebrations.
               </p>
             </div>
@@ -240,7 +240,7 @@ export default function HomePage() {
             <div className="grid items-center gap-16 lg:grid-cols-2">
               {/* Image pair */}
               <div className="grid grid-cols-2 gap-4">
-                <div className="relative aspect-[3/4] overflow-hidden rounded-2xl">
+                <div className="relative aspect-[3/4] overflow-hidden rounded">
                   <Image
                     src="/images/wedding-couple.jpg"
                     alt="Couple sharing a joyful laugh during their photo booth session"
@@ -249,7 +249,7 @@ export default function HomePage() {
                     sizes="(max-width: 1024px) 50vw, 25vw"
                   />
                 </div>
-                <div className="relative mt-8 aspect-[3/4] overflow-hidden rounded-2xl">
+                <div className="relative mt-8 aspect-[3/4] overflow-hidden rounded">
                   <Image
                     src="/images/wedding-details.jpg"
                     alt="Wedding keepsake details with photo booth strips"
@@ -260,7 +260,7 @@ export default function HomePage() {
                 </div>
               </div>
               {/* Copy */}
-              <div className="text-center lg:text-left">
+              <div>
                 <h2 className="mb-8 font-heading text-4xl leading-snug text-espresso sm:text-5xl">
                   For Weddings
                 </h2>
@@ -290,11 +290,11 @@ export default function HomePage() {
         </section>
 
         {/* ── Corporate ── */}
-        <section className="bg-white px-6 py-28 sm:py-36">
+        <section className="bg-desert-sand/20 px-6 py-28 sm:py-36">
           <div className="mx-auto max-w-5xl">
             <div className="grid items-center gap-16 lg:grid-cols-2">
               {/* Copy */}
-              <div className="text-center lg:text-left">
+              <div>
                 <h2 className="mb-8 font-heading text-4xl leading-snug text-espresso sm:text-5xl">
                   The Corporate Atelier
                 </h2>
@@ -313,7 +313,7 @@ export default function HomePage() {
                 </p>
               </div>
               {/* Image */}
-              <div className="relative mx-auto aspect-[3/4] w-full max-w-md overflow-hidden rounded-3xl">
+              <div className="relative mx-auto aspect-[3/4] w-full max-w-md overflow-hidden rounded">
                 <Image
                   src="/images/corporate-portrait.jpg"
                   alt="Polished professional portrait at an elevated corporate activation"
@@ -335,11 +335,11 @@ export default function HomePage() {
         {/* ── Our Approach ── */}
         <section className="bg-desert-sand/40 px-6 py-28 sm:py-36">
           <div className="mx-auto max-w-5xl">
-            <div className="mb-20 text-center">
+            <div className="mb-20">
               <h2 className="mb-4 font-heading text-4xl text-espresso sm:text-5xl">
                 Our Approach
               </h2>
-              <p className="mx-auto max-w-xl text-lg leading-relaxed text-almond/80">
+              <p className="max-w-xl text-lg leading-relaxed text-almond/80">
                 Calm. Seamless. Intentional.
               </p>
             </div>
@@ -389,7 +389,7 @@ export default function HomePage() {
         </section>
 
         {/* ── Gallery Strip ── */}
-        <section className="bg-white py-4">
+        <section className="bg-desert-sand/20 py-4">
           <div className="flex gap-4 overflow-hidden px-4">
             {[
               { src: '/images/social-celebration.jpg', alt: 'Friends celebrating with champagne at a photo booth' },
@@ -399,7 +399,7 @@ export default function HomePage() {
               { src: '/images/social-group-champagne.jpg', alt: 'Group of friends with champagne glasses' },
               { src: '/images/printed-keepsake.jpg', alt: 'Custom photo booth print keepsake card' },
             ].map((img) => (
-              <div key={img.src} className="relative aspect-[4/5] w-48 shrink-0 overflow-hidden rounded-2xl sm:w-56 md:w-64">
+              <div key={img.src} className="relative aspect-[4/5] w-48 shrink-0 overflow-hidden rounded sm:w-56 md:w-64">
                 <Image
                   src={img.src}
                   alt={img.alt}
@@ -439,22 +439,22 @@ export default function HomePage() {
               &ldquo;We don&rsquo;t just capture moments, we create them.
               Warm, golden, and unapologetically beautiful.&rdquo;
             </blockquote>
-            <p className="font-subheading text-sm tracking-widest text-desert-glow uppercase">
+            <p className="font-subheading text-sm font-light tracking-widest text-desert-glow uppercase">
               The Unfiltered Rays Promise
             </p>
           </div>
         </section>
 
         {/* ── Investment ── */}
-        <section className="bg-white px-6 py-28 sm:py-36">
-          <div className="mx-auto max-w-3xl text-center">
+        <section className="bg-desert-sand/20 px-6 py-28 sm:py-36">
+          <div className="mx-auto max-w-3xl">
             <h2 className="mb-8 font-heading text-4xl leading-snug text-espresso sm:text-5xl">
               Investment
             </h2>
-            <p className="mx-auto mb-6 max-w-2xl text-lg leading-relaxed text-almond/80">
+            <p className="mb-6 max-w-2xl text-lg leading-relaxed text-almond/80">
               Our collections begin at $995.
             </p>
-            <p className="mx-auto max-w-2xl text-lg leading-relaxed text-almond/80">
+            <p className="max-w-2xl text-lg leading-relaxed text-almond/80">
               A 50% retainer secures your date, with the remaining balance due
               30 days prior to your event.
             </p>
@@ -468,12 +468,12 @@ export default function HomePage() {
         </section>
 
         {/* ── Contact Form ── */}
-        <section id="contact" className="bg-white px-6 py-28 sm:py-36">
+        <section id="contact" className="bg-desert-sand/20 px-6 py-28 sm:py-36">
           <div className="mx-auto max-w-5xl">
             <div className="grid gap-16 lg:grid-cols-2 lg:items-start">
               {/* Left column — copy + image */}
               <div>
-                <p className="mb-4 font-subheading text-sm tracking-widest text-sunlit-clay uppercase">
+                <p className="mb-4 font-subheading text-sm font-light tracking-widest text-sunlit-clay uppercase">
                   Get in Touch
                 </p>
                 <h2 className="mb-6 font-heading text-4xl text-espresso sm:text-5xl">
@@ -499,7 +499,7 @@ export default function HomePage() {
                   </div>
                 </div>
                 {/* Contact image */}
-                <div className="relative hidden aspect-[4/3] overflow-hidden rounded-2xl lg:block">
+                <div className="relative hidden aspect-[4/3] overflow-hidden rounded lg:block">
                   <Image
                     src="/images/contact-viewing.jpg"
                     alt="Guest smiling while viewing her photo booth prints"
@@ -511,7 +511,7 @@ export default function HomePage() {
               </div>
 
               {/* Right column — form */}
-              <div className="rounded-3xl bg-desert-sand/20 p-8 sm:p-10">
+              <div className="rounded bg-desert-sand/30 p-8 sm:p-10">
                 <ContactForm />
               </div>
             </div>

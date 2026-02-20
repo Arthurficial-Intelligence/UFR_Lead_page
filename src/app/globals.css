@@ -1,29 +1,7 @@
 @import "tailwindcss";
 
 /* ── Brand Fonts ── */
-@font-face {
-  font-family: "Notica Serif";
-  src: url("/fonts/notica-serif.otf") format("opentype");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Bookseller";
-  src: url("/fonts/BooksellerBk Regular.otf") format("opentype");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Room";
-  src: url("/fonts/Room-Medium.ttf") format("truetype");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
+/* Cormorant Garamond (headings) and Inter (subheading/body) loaded via next/font in layout.tsx */
 
 @font-face {
   font-family: "Cynthia June";
@@ -34,10 +12,10 @@
 }
 
 @theme inline {
-  /* Font families */
-  --font-heading: "Notica Serif", serif;
-  --font-subheading: "Room", sans-serif;
-  --font-body: "Bookseller", serif;
+  /* Font families — Cormorant Garamond & Inter via CSS variables from next/font */
+  --font-heading: var(--font-cormorant), "Cormorant Garamond", serif;
+  --font-subheading: var(--font-inter), "Inter", sans-serif;
+  --font-body: var(--font-inter), "Inter", sans-serif;
   --font-accent: "Cynthia June", cursive;
 
   /* Brand color palette */

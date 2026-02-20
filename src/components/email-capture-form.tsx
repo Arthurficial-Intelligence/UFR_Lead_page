@@ -13,7 +13,7 @@ const EVENT_TYPES = [
 ]
 
 const inputClass =
-  'w-full rounded-xl border border-desert-sand bg-white px-4 py-3 font-body text-espresso placeholder:text-almond/40 focus:border-sunlit-clay focus:outline-none focus:ring-1 focus:ring-sunlit-clay/30 transition-colors'
+  'w-full rounded border border-desert-sand bg-white px-4 py-3 font-body text-espresso placeholder:text-almond/40 focus:border-sunlit-clay focus:outline-none focus:ring-1 focus:ring-sunlit-clay/30 transition-colors'
 
 export function ContactForm() {
   const [form, setForm] = useState({
@@ -80,7 +80,7 @@ export function ContactForm() {
 
   if (status === 'success') {
     return (
-      <div className="rounded-2xl bg-desert-sand/50 p-10 text-center">
+      <div className="rounded bg-desert-sand/50 p-10">
         <p className="mb-2 font-heading text-2xl text-espresso">
           Thank You!
         </p>
@@ -95,7 +95,7 @@ export function ContactForm() {
     <form onSubmit={handleSubmit} className="space-y-5">
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
-          <label htmlFor="name" className="mb-1.5 block font-subheading text-xs tracking-wider text-almond/60 uppercase">
+          <label htmlFor="name" className="mb-1.5 block font-subheading text-xs font-light tracking-wider text-almond/60 uppercase">
             Name
           </label>
           <input
@@ -108,7 +108,7 @@ export function ContactForm() {
           />
         </div>
         <div>
-          <label htmlFor="email" className="mb-1.5 block font-subheading text-xs tracking-wider text-almond/60 uppercase">
+          <label htmlFor="email" className="mb-1.5 block font-subheading text-xs font-light tracking-wider text-almond/60 uppercase">
             Email <span className="text-sunlit-clay">*</span>
           </label>
           <input
@@ -125,7 +125,7 @@ export function ContactForm() {
 
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
-          <label htmlFor="phone" className="mb-1.5 block font-subheading text-xs tracking-wider text-almond/60 uppercase">
+          <label htmlFor="phone" className="mb-1.5 block font-subheading text-xs font-light tracking-wider text-almond/60 uppercase">
             Phone
           </label>
           <input
@@ -138,7 +138,7 @@ export function ContactForm() {
           />
         </div>
         <div>
-          <label htmlFor="eventDate" className="mb-1.5 block font-subheading text-xs tracking-wider text-almond/60 uppercase">
+          <label htmlFor="eventDate" className="mb-1.5 block font-subheading text-xs font-light tracking-wider text-almond/60 uppercase">
             Event Date
           </label>
           <input
@@ -152,7 +152,7 @@ export function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="eventType" className="mb-1.5 block font-subheading text-xs tracking-wider text-almond/60 uppercase">
+        <label htmlFor="eventType" className="mb-1.5 block font-subheading text-xs font-light tracking-wider text-almond/60 uppercase">
           Type of Event
         </label>
         <select
@@ -171,7 +171,7 @@ export function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="message" className="mb-1.5 block font-subheading text-xs tracking-wider text-almond/60 uppercase">
+        <label htmlFor="message" className="mb-1.5 block font-subheading text-xs font-light tracking-wider text-almond/60 uppercase">
           Tell Us About Your Vision
         </label>
         <textarea
@@ -187,7 +187,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={status === 'loading'}
-        className="w-full rounded-xl bg-espresso py-4 font-subheading text-base tracking-wide text-desert-sand transition-all duration-300 hover:bg-almond hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-50"
+        className="w-full rounded border border-espresso bg-espresso py-4 font-subheading text-base tracking-wide text-desert-sand transition-colors duration-300 hover:bg-almond hover:border-almond disabled:cursor-not-allowed disabled:opacity-50"
       >
         {status === 'loading' ? 'Sending...' : 'Send Inquiry'}
       </button>

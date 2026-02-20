@@ -36,7 +36,7 @@ function CollectionCard({
   onToggle: () => void
 }) {
   return (
-    <div className="group relative overflow-hidden rounded-3xl bg-desert-sand/30 transition-shadow duration-300 hover:shadow-lg">
+    <div className="group relative overflow-hidden rounded border border-espresso/10 bg-desert-sand/30 transition-colors duration-300 hover:border-espresso/20">
       <div className="pointer-events-none absolute -top-8 -right-8 h-32 w-32 rounded-full bg-desert-glow/10" />
 
       {/* Clickable header */}
@@ -64,10 +64,10 @@ function CollectionCard({
             />
           </svg>
         </div>
-        <p className="font-subheading text-sm tracking-wide text-sunlit-clay">
+        <p className="font-subheading text-sm font-light tracking-wide text-sunlit-clay">
           {collection.price}
         </p>
-        <p className="font-subheading text-xs tracking-wide text-almond/60">
+        <p className="font-subheading text-xs font-light tracking-wide text-almond/60">
           {collection.coverage}
         </p>
       </button>

@@ -1,8 +1,23 @@
 import type { Metadata } from 'next'
+import { Cormorant_Garamond, Inter } from 'next/font/google'
 import { PostHogProvider } from '@/components/posthog-provider'
 import { AnalyticsPageView } from '@/components/analytics-page-view'
 import { SITE_CONFIG } from '@/lib/constants'
 import './globals.css'
+
+const cormorant = Cormorant_Garamond({
+  subsets: ['latin'],
+  weight: ['400'],
+  variable: '--font-cormorant',
+  display: 'swap',
+})
+
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['300', '400'],
+  variable: '--font-inter',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.url),
@@ -59,7 +74,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="font-body antialiased">
+      <body className={`${cormorant.variable} ${inter.variable} font-body antialiased`}>
         <PostHogProvider>
           <AnalyticsPageView />
           {children}
