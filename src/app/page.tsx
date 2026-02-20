@@ -1,4 +1,5 @@
 import { ContactForm } from '@/components/email-capture-form'
+import { CollectionCards } from '@/components/collections-dropdown'
 import { SITE_CONFIG } from '@/lib/constants'
 
 const jsonLd = {
@@ -140,98 +141,25 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ── Our Offerings ── */}
+        {/* ── Collections ── */}
         <section id="collections" className="bg-white px-6 py-28 sm:py-36">
           <div className="mx-auto max-w-6xl">
             <div className="mb-16 text-center">
-              <p className="mb-4 font-subheading text-sm tracking-widest text-sunlit-clay uppercase">
-                What We Offer
-              </p>
-              <h2 className="font-heading text-4xl text-espresso sm:text-5xl">
-                Curated Booth Experiences
+              <h2 className="mb-4 font-heading text-4xl text-espresso sm:text-5xl">
+                Our Collections
               </h2>
+              <p className="mx-auto max-w-xl text-lg leading-relaxed text-almond/80">
+                Three intentionally designed offerings for refined celebrations.
+              </p>
             </div>
 
-            <div className="grid gap-6 md:grid-cols-2">
-              {/* Offering 1 */}
-              <div className="relative overflow-hidden rounded-3xl bg-desert-sand/30 p-10 sm:p-12">
-                <div className="pointer-events-none absolute -top-8 -right-8 h-32 w-32 rounded-full bg-desert-glow/10" />
-                <p className="mb-2 font-subheading text-xs tracking-widest text-sunlit-clay uppercase">
-                  Most Popular
-                </p>
-                <h3 className="mb-4 font-heading text-2xl text-espresso sm:text-3xl">
-                  The Golden Hour Booth
-                </h3>
-                <p className="mb-6 leading-relaxed text-almond/70">
-                  Our signature open-air booth with warm, golden lighting and
-                  custom backdrops. Includes instant prints, digital gallery,
-                  and a dedicated attendant for a seamless experience.
-                </p>
-                <ul className="space-y-2 text-sm text-almond/70">
-                  <li className="flex items-center gap-2">
-                    <span className="h-1.5 w-1.5 rounded-full bg-desert-glow" />
-                    Custom photo overlays &amp; branding
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="h-1.5 w-1.5 rounded-full bg-desert-glow" />
-                    Unlimited sessions &amp; instant prints
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="h-1.5 w-1.5 rounded-full bg-desert-glow" />
-                    Curated digital gallery
-                  </li>
-                </ul>
-              </div>
+            <CollectionCards />
 
-              {/* Offering 2 */}
-              <div className="relative overflow-hidden rounded-3xl bg-desert-sand/30 p-10 sm:p-12">
-                <div className="pointer-events-none absolute -top-8 -right-8 h-32 w-32 rounded-full bg-sky/10" />
-                <p className="mb-2 font-subheading text-xs tracking-widest text-sky uppercase">
-                  Intimate &amp; Fun
-                </p>
-                <h3 className="mb-4 font-heading text-2xl text-espresso sm:text-3xl">
-                  The Desert Glow Booth
-                </h3>
-                <p className="mb-6 leading-relaxed text-almond/70">
-                  A warm, enclosed booth experience with a boho-chic aesthetic.
-                  Perfect for weddings, showers, and intimate gatherings where
-                  you want that cozy, golden-hour feel.
-                </p>
-                <ul className="space-y-2 text-sm text-almond/70">
-                  <li className="flex items-center gap-2">
-                    <span className="h-1.5 w-1.5 rounded-full bg-desert-glow" />
-                    Styled backdrop &amp; props
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="h-1.5 w-1.5 rounded-full bg-desert-glow" />
-                    Instant sharing via text &amp; email
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="h-1.5 w-1.5 rounded-full bg-desert-glow" />
-                    Guest book print option
-                  </li>
-                </ul>
-              </div>
-
-              {/* Offering 3 — full width */}
-              <div className="relative overflow-hidden rounded-3xl bg-espresso p-10 sm:p-12 md:col-span-2">
-                <div className="pointer-events-none absolute -bottom-12 -right-12 h-40 w-40 rounded-full bg-sunlit-clay/10" />
-                <div className="mx-auto max-w-2xl text-center">
-                  <p className="mb-2 font-subheading text-xs tracking-widest text-desert-glow uppercase">
-                    Fully Tailored
-                  </p>
-                  <h3 className="mb-4 font-heading text-2xl text-desert-sand sm:text-3xl">
-                    Custom &amp; Corporate
-                  </h3>
-                  <p className="leading-relaxed text-desert-sand/70">
-                    For brands, launches, and large-scale events, a fully
-                    branded experience from the ground up. Custom wraps,
-                    on-screen branding, data capture, and premium add-ons
-                    tailored to your vision.
-                  </p>
-                </div>
-              </div>
-            </div>
+            {/* Retainer note */}
+            <p className="mt-10 text-center text-sm leading-relaxed text-almond/50">
+              A 50% retainer secures your date, with the remaining balance due
+              30 days prior to your event.
+            </p>
           </div>
         </section>
 

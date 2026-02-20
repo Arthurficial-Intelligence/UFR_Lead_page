@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef, useEffect } from 'react'
+import { useState } from 'react'
 
 const collections = [
   {
@@ -26,87 +26,87 @@ const collections = [
   },
 ]
 
-export function CollectionsDropdown() {
-  const [isOpen, setIsOpen] = useState(false)
-  const dropdownRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node)
-      ) {
-        setIsOpen(false)
-      }
-    }
-    document.addEventListener('mousedown', handleClickOutside)
-    return () => document.removeEventListener('mousedown', handleClickOutside)
-  }, [])
-
+function CollectionCard({
+  collection,
+  isOpen,
+  onToggle,
+}: {
+  collection: (typeof collections)[number]
+  isOpen: boolean
+  onToggle: () => void
+}) {
   return (
-    <div ref={dropdownRef} className="relative">
+    <div className="group relative overflow-hidden rounded-3xl bg-desert-sand/30 transition-shadow duration-300 hover:shadow-lg">
+      <div className="pointer-events-none absolute -top-8 -right-8 h-32 w-32 rounded-full bg-desert-glow/10" />
+
+      {/* Clickable header */}
       <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="inline-flex items-center gap-2 rounded-full border border-espresso/30 px-10 py-4 font-subheading text-base tracking-wide text-espresso transition-all duration-300 hover:bg-espresso/5"
+        onClick={onToggle}
+        className="w-full p-10 text-left sm:p-12"
       >
-        View Collections
-        <svg
-          className={`h-4 w-4 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          strokeWidth={2}
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M19 9l-7 7-7-7"
-          />
-        </svg>
+        <div className="mb-1 flex items-baseline justify-between gap-4">
+          <h3 className="font-heading text-2xl text-espresso sm:text-3xl">
+            {collection.name}
+          </h3>
+          <svg
+            className={`h-5 w-5 shrink-0 text-sunlit-clay transition-transform duration-300 ${
+              isOpen ? 'rotate-180' : ''
+            }`}
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
+        </div>
+        <p className="font-subheading text-sm tracking-wide text-sunlit-clay">
+          {collection.price}
+        </p>
+        <p className="font-subheading text-xs tracking-wide text-almond/60">
+          {collection.coverage}
+        </p>
       </button>
 
-      {/* Dropdown panel */}
+      {/* Expandable description */}
       <div
-        className={`absolute left-1/2 mt-4 w-[min(420px,90vw)] -translate-x-1/2 overflow-hidden rounded-2xl bg-white/95 shadow-xl ring-1 ring-espresso/10 backdrop-blur-sm transition-all duration-300 ${
-          isOpen
-            ? 'pointer-events-auto translate-y-0 opacity-100'
-            : 'pointer-events-none -translate-y-2 opacity-0'
-        }`}
+        className="overflow-hidden transition-all duration-300 ease-in-out"
+        style={{
+          maxHeight: isOpen ? '300px' : '0px',
+          opacity: isOpen ? 1 : 0,
+        }}
       >
-        <div className="divide-y divide-desert-sand/40">
-          {collections.map((collection) => (
-            <a
-              key={collection.name}
-              href="#contact"
-              className="group block px-6 py-5 transition-colors duration-200 hover:bg-desert-sand/20"
-              onClick={() => setIsOpen(false)}
-            >
-              <div className="mb-1 flex items-baseline justify-between gap-4">
-                <h3 className="font-heading text-lg text-espresso">
-                  {collection.name}
-                </h3>
-                <span className="shrink-0 font-subheading text-xs tracking-wide text-sunlit-clay">
-                  {collection.price}
-                </span>
-              </div>
-              <p className="mb-2 font-subheading text-xs tracking-wide text-almond/60">
-                {collection.coverage}
-              </p>
-              <p className="text-sm leading-relaxed text-almond/70">
-                {collection.description}
-              </p>
-            </a>
-          ))}
-        </div>
-
-        {/* Retainer note */}
-        <div className="border-t border-desert-sand/40 bg-desert-sand/10 px-6 py-3">
-          <p className="text-center text-xs leading-relaxed text-almond/50">
-            A 50% retainer secures your date, with the remaining balance due 30
-            days prior to your event.
-          </p>
+        <div className="px-10 pb-10 sm:px-12 sm:pb-12">
+          <div className="border-t border-espresso/10 pt-6">
+            <p className="leading-relaxed text-almond/70">
+              {collection.description}
+            </p>
+          </div>
         </div>
       </div>
+    </div>
+  )
+}
+
+export function CollectionCards() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null)
+
+  return (
+    <div className="grid items-start gap-6 md:grid-cols-3">
+      {collections.map((collection, index) => (
+        <CollectionCard
+          key={collection.name}
+          collection={collection}
+          isOpen={openIndex === index}
+          onToggle={() =>
+            setOpenIndex(openIndex === index ? null : index)
+          }
+        />
+      ))}
     </div>
   )
 }
