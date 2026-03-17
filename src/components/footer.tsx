@@ -75,7 +75,7 @@ export function Footer() {
             </Link>
           </div>
           <p className="text-xs text-desert-sand/40">
-            &copy; {new Date().getFullYear()} {SITE_CONFIG.name}. All rights reserved.
+            &copy; {new Date().getFullYear()} {SITE_CONFIG.name} All rights reserved.
           </p>
         </div>
       </div>

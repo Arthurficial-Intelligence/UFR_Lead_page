@@ -53,14 +53,9 @@ export default function AboutPage() {
               sizes="(max-width: 768px) 100vw, 500px"
             />
           </div>
-          <div className="mb-10 flex flex-col items-center gap-2 sm:flex-row sm:justify-center sm:gap-8">
-            <p className="font-heading text-xl text-espresso">
-              Jazmen Howard &mdash; Co-Founder
-            </p>
-            <p className="font-heading text-xl text-espresso">
-              [Co-Founder Name] &mdash; Co-Founder
-            </p>
-          </div>
+          <p className="mb-10 font-heading text-xl text-espresso">
+            Jazmen Howard &mdash; Founder
+          </p>
           <p className="font-heading text-2xl italic text-almond/70">
             We&rsquo;d love to be part of yours.
           </p>
