@@ -1,7 +1,10 @@
 import type { Metadata } from 'next'
 import { Cormorant_Garamond, Inter } from 'next/font/google'
+import { GoogleAnalytics } from '@next/third-parties/google'
 import { PostHogProvider } from '@/components/posthog-provider'
 import { AnalyticsPageView } from '@/components/analytics-page-view'
+import { Navbar } from '@/components/navbar'
+import { Footer } from '@/components/footer'
 import { SITE_CONFIG } from '@/lib/constants'
 import './globals.css'
 
@@ -77,9 +80,14 @@ export default function RootLayout({
       <body className={`${cormorant.variable} ${inter.variable} font-body antialiased`}>
         <PostHogProvider>
           <AnalyticsPageView />
-          {children}
+          <Navbar />
+          <main>{children}</main>
+          <Footer />
         </PostHogProvider>
       </body>
+      {process.env.NEXT_PUBLIC_GA_ID && (
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+      )}
     </html>
   )
 }
