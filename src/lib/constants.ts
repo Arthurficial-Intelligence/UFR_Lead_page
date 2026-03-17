@@ -1,8 +1,9 @@
 export const SITE_CONFIG = {
-  name: 'Unfiltered Rays',
+  name: 'Unfiltered Rays Media Co.',
+  shortName: 'Unfiltered Rays',
   description:
     'Intentional, refined photo experiences for weddings and elevated events in Nashville. Preserving the moment, as it is.',
-  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://yourphotoboothdomain.com',
+  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://unfilteredrays.com',
   ogImage: '/og-image.jpg',
   keywords: [
     'luxury photo booth Nashville',
@@ -15,8 +16,9 @@ export const SITE_CONFIG = {
     'event photo booth Tennessee',
   ],
   contact: {
-    email: 'hello@yourphotoboothdomain.com',
-    phone: '+1-555-000-0000',
+    email: 'hello@unfilteredrays.com',
+    instagram: '@unfilteredraysmediaco',
+    instagramUrl: 'https://www.instagram.com/unfilteredraysmediaco',
   },
   address: {
     locality: 'Nashville',
@@ -30,5 +32,13 @@ export const SITE_CONFIG = {
     'Franklin',
     'Spring Hill',
     'Lebanon',
+  ],
+  navLinks: [
+    { label: 'Home', href: '/' },
+    { label: 'About', href: '/about' },
+    { label: 'Services', href: '/services' },
+    { label: 'Gallery', href: '/gallery' },
+    { label: 'FAQ', href: '/faq' },
+    { label: 'Contact', href: '/contact' },
   ],
 } as const
