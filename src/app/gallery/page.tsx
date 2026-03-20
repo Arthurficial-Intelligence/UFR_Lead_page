@@ -9,22 +9,18 @@ export const metadata: Metadata = {
 }
 
 const galleryImages = [
-  { src: '/images/hero-couple.jpg', alt: 'Couple in a warm, candid photo booth moment' },
-  { src: '/images/social-celebration.jpg', alt: 'Friends celebrating with champagne' },
-  { src: '/images/wedding-details.jpg', alt: 'Wedding keepsake details with photo strips' },
-  { src: '/images/toast-couple.jpg', alt: 'Couple sharing a toast' },
-  { src: '/images/social-trio.jpg', alt: 'Three friends posing together' },
-  { src: '/images/positioning-moment.jpg', alt: 'An intimate, unposed moment' },
-  { src: '/images/couple-embrace.jpg', alt: 'Couple in a warm embrace' },
-  { src: '/images/social-group-champagne.jpg', alt: 'Group celebrating with champagne' },
-  { src: '/images/printed-keepsake.jpg', alt: 'Custom photo booth print keepsake' },
-  { src: '/images/toast-intimate.jpg', alt: 'Intimate toast at a celebration' },
-  { src: '/images/social-friends.jpg', alt: 'Friends sharing a candid moment' },
-  { src: '/images/wedding-couple.jpg', alt: 'Couple sharing a joyful laugh' },
-  { src: '/images/portrait-smile.jpg', alt: 'Warm portrait with a genuine smile' },
-  { src: '/images/social-candid.jpg', alt: 'Candid moment between friends' },
-  { src: '/images/intention-keepsake.jpg', alt: 'Hands holding photo booth prints' },
-  { src: '/images/social-duo.jpg', alt: 'Two friends at a celebration' },
+  { src: '/images/ufr-1085.jpg', alt: 'Elegant editorial moment at the photo booth' },
+  { src: '/images/ufr-1825.jpg', alt: 'Three friends laughing together with abandon' },
+  { src: '/images/ufr-1808.jpg', alt: 'Warm, intimate embrace between couple' },
+  { src: '/images/ufr-1777.jpg', alt: 'Joyful wedding photo booth moment' },
+  { src: '/images/ufr-1622.jpg', alt: 'Playful group gathered around the booth' },
+  { src: '/images/ufr-1757.jpg', alt: 'Composed group portrait at event' },
+  { src: '/images/ufr-1784.jpg', alt: 'Milestone celebration at photo booth' },
+  { src: '/images/ufr-1545.jpg', alt: 'Clean photo booth product shot' },
+  { src: '/images/ufr-1548.jpg', alt: 'Photo booth detail and setup' },
+  { src: '/images/ufr-1489.jpg', alt: 'Guest interaction with photo booth' },
+  { src: '/images/ufr-1196.jpg', alt: 'Warm candid moment at gathering' },
+  { src: '/images/ufr-1241.jpg', alt: 'Beautiful event photography moment' },
 ]
 
 export default function GalleryPage() {
@@ -48,8 +44,8 @@ export default function GalleryPage() {
               <Image
                 src={img.src}
                 alt={img.alt}
-                width={600}
-                height={750}
+                width={800}
+                height={600}
                 className="w-full object-cover"
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />

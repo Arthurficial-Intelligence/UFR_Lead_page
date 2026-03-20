@@ -1,10 +1,11 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
+import { FadeIn } from '@/components/fade-in'
 import { ContactForm } from '@/components/email-capture-form'
 import { SITE_CONFIG } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'Contact',
+  title: 'Inquire',
   description:
     'Reach out to reserve your date or learn more about Unfiltered Rays photo booth experiences in Nashville.',
 }
@@ -26,12 +27,13 @@ export default function ContactPage() {
 
       <section className="bg-desert-sand/20 px-6 py-16 sm:py-24">
         <div className="mx-auto max-w-5xl">
+          <FadeIn>
           <div className="grid gap-16 lg:grid-cols-2 lg:items-start">
             <div>
               <div className="relative mb-10 aspect-[4/3] overflow-hidden rounded">
                 <Image
-                  src="/images/contact-viewing.jpg"
-                  alt="Guest smiling while viewing photo booth prints"
+                  src="/images/ufr-1808.jpg"
+                  alt="Warm, intimate moment at photo booth"
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"
@@ -62,6 +64,7 @@ export default function ContactPage() {
               <ContactForm />
             </div>
           </div>
+          </FadeIn>
         </div>
       </section>
     </>

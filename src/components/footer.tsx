@@ -10,7 +10,7 @@ export function Footer() {
             <p className="mb-2 font-heading text-2xl text-desert-sand">
               {SITE_CONFIG.shortName}
             </p>
-            <p className="font-accent text-lg text-desert-glow/70">
+            <p className="font-subheading text-base italic text-desert-glow/70">
               Preserving the moment, as it is.
             </p>
           </div>
@@ -60,7 +60,9 @@ export function Footer() {
             Serving
           </p>
           <p className="text-sm text-desert-sand/40">
-            {SITE_CONFIG.serviceAreas.join(' · ')}
+            Nashville · Murfreesboro · Clarksville
+            <br />
+            Franklin · Spring Hill · Lebanon
           </p>
         </div>
 
