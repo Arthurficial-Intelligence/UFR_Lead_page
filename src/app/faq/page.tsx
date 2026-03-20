@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { FadeIn } from '@/components/fade-in'
 import { FaqAccordion } from '@/components/faq-accordion'
 import { CtaButton } from '@/components/cta-button'
 
@@ -69,16 +70,20 @@ export default function FaqPage() {
 
       <section className="bg-desert-sand/20 px-6 py-16 sm:py-24">
         <div className="mx-auto max-w-3xl">
-          <FaqAccordion items={faqItems} />
+          <FadeIn>
+            <FaqAccordion items={faqItems} />
+          </FadeIn>
         </div>
       </section>
 
       <section className="bg-desert-sand/40 px-6 py-20">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="mb-6 font-heading text-2xl text-espresso">
-            Have a question we didn&rsquo;t cover?
-          </p>
-          <CtaButton href="/contact">Reach Out</CtaButton>
+          <FadeIn>
+            <p className="mb-6 font-heading text-2xl text-espresso">
+              Have a question we didn&rsquo;t cover?
+            </p>
+            <CtaButton href="/contact">Reach Out</CtaButton>
+          </FadeIn>
         </div>
       </section>
     </>

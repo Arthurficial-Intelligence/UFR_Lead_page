@@ -1,4 +1,6 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
+import { FadeIn } from '@/components/fade-in'
 import { CollectionCards } from '@/components/collection-cards'
 import { CtaButton } from '@/components/cta-button'
 import { SectionDivider } from '@/components/section-divider'
@@ -39,6 +41,15 @@ export default function ServicesPage() {
           <h1 className="mb-8 font-heading text-5xl leading-tight text-espresso sm:text-6xl">
             Considered experiences, designed for your day.
           </h1>
+          <div className="relative mb-10 aspect-[4/3] overflow-hidden rounded">
+            <Image
+              src="/images/ufr-1545.jpg"
+              alt="The Unfiltered Rays photo booth setup"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 700px"
+            />
+          </div>
           <p className="mb-6 text-lg leading-relaxed text-almond/80">
             Every Unfiltered Rays collection is built around the same promise &mdash; a seamless, beautiful experience that your guests will actually remember. We handle setup, styling, and takedown so you can be fully present.
           </p>
@@ -50,78 +61,97 @@ export default function ServicesPage() {
 
       <section className="bg-desert-sand/20 px-6 py-28 sm:py-36">
         <div className="mx-auto max-w-5xl">
-          <h2 className="mb-12 font-heading text-4xl text-espresso sm:text-5xl">
-            What&rsquo;s Included in Every Collection
-          </h2>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {includedItems.map((item) => (
-              <div key={item} className="rounded border border-espresso/5 bg-desert-sand/30 p-5">
-                <p className="text-sm leading-relaxed text-almond/70">{item}</p>
-              </div>
-            ))}
-          </div>
-          <SectionDivider className="mt-16" />
+          <FadeIn>
+            <h2 className="mb-12 font-heading text-4xl text-espresso sm:text-5xl">
+              What&rsquo;s Included in Every Collection
+            </h2>
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {includedItems.map((item) => (
+                <div key={item} className="rounded border border-espresso/5 bg-desert-sand/30 p-5">
+                  <p className="text-sm leading-relaxed text-almond/70">{item}</p>
+                </div>
+              ))}
+            </div>
+            <div className="relative mt-12 aspect-[16/9] overflow-hidden rounded">
+              <Image
+                src="/images/ufr-1489.jpg"
+                alt="Guests interacting with the photo booth"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 1000px"
+              />
+            </div>
+            <SectionDivider className="mt-16" />
+          </FadeIn>
         </div>
       </section>
 
       <section className="bg-desert-sand/40 px-6 py-28 sm:py-36">
         <div className="mx-auto max-w-6xl">
-          <h2 className="mb-12 font-heading text-4xl text-espresso sm:text-5xl">
-            The Collections
-          </h2>
-          <CollectionCards />
-          <SectionDivider className="mt-16" />
+          <FadeIn>
+            <h2 className="mb-12 font-heading text-4xl text-espresso sm:text-5xl">
+              The Collections
+            </h2>
+            <CollectionCards />
+            <SectionDivider className="mt-16" />
+          </FadeIn>
         </div>
       </section>
 
       <section className="bg-espresso px-6 py-28 sm:py-36">
         <div className="mx-auto max-w-3xl">
-          <p className="mb-4 font-subheading text-sm font-light tracking-widest text-desert-glow uppercase">
-            The Canvas Collection &mdash; Corporate &amp; Brand
-          </p>
-          <h2 className="mb-4 font-heading text-4xl text-desert-sand sm:text-5xl">
-            Your brand. Your moment. Built together.
-          </h2>
-          <p className="mb-8 font-subheading text-sm text-desert-sand/50">
-            Pricing upon inquiry &middot; Custom duration
-          </p>
-          <p className="mb-6 text-lg leading-relaxed text-desert-sand/70">
-            Designed for corporate clients, brand activations, and experiential marketing moments. The Canvas Collection is fully bespoke &mdash; we work directly with your team to design a photo booth experience that feels native to your brand, not like a vendor add-on.
-          </p>
-          <p className="mb-10 text-lg leading-relaxed text-desert-sand/70">
-            Whether you&rsquo;re launching a product, hosting a client appreciation event, or building a social-worthy activation, we bring the same warmth and intention that defines every Unfiltered Rays experience &mdash; built entirely around your audience.
-          </p>
-          <p className="mb-4 font-subheading text-xs tracking-widest text-desert-glow uppercase">
-            Who it&rsquo;s for
-          </p>
-          <ul className="mb-10 space-y-2 text-desert-sand/60">
-            {canvasAudience.map((item) => (
-              <li key={item}>&mdash; {item}</li>
-            ))}
-          </ul>
-          <CtaButton href="/contact" variant="inverted">
-            Let&rsquo;s Talk About Your Event
-          </CtaButton>
+          <FadeIn>
+            <p className="mb-4 font-subheading text-sm font-light tracking-widest text-desert-glow uppercase">
+              The Canvas Collection &mdash; Corporate &amp; Brand
+            </p>
+            <h2 className="mb-4 font-heading text-4xl text-desert-sand sm:text-5xl">
+              Your brand. Your moment. Built together.
+            </h2>
+            <p className="mb-8 font-subheading text-sm text-desert-sand/50">
+              Pricing upon inquiry &middot; Custom duration
+            </p>
+            <p className="mb-6 text-lg leading-relaxed text-desert-sand/70">
+              Designed for corporate clients, brand activations, and experiential marketing moments. The Canvas Collection is fully bespoke &mdash; we work directly with your team to design a photo booth experience that feels native to your brand, not like a vendor add-on.
+            </p>
+            <p className="mb-10 text-lg leading-relaxed text-desert-sand/70">
+              Whether you&rsquo;re launching a product, hosting a client appreciation event, or building a social-worthy activation, we bring the same warmth and intention that defines every Unfiltered Rays experience &mdash; built entirely around your audience.
+            </p>
+            <p className="mb-4 font-subheading text-xs tracking-widest text-desert-glow uppercase">
+              Who it&rsquo;s for
+            </p>
+            <ul className="mb-10 space-y-2 text-desert-sand/60">
+              {canvasAudience.map((item) => (
+                <li key={item}>&mdash; {item}</li>
+              ))}
+            </ul>
+            <CtaButton href="/contact" variant="inverted">
+              Let&rsquo;s Talk About Your Event
+            </CtaButton>
+          </FadeIn>
         </div>
       </section>
 
       <section className="bg-desert-sand/20 px-6 py-12">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-sm leading-relaxed text-almond/50">
-            Additional hours may be added to any collection at $150 per hour. A mileage fee of $0.70 per mile applies to events outside a 50-mile radius of Nashville, TN. All bookings are subject to a signed contract and retainer.
-          </p>
+          <FadeIn>
+            <p className="text-sm leading-relaxed text-almond/50">
+              Additional hours may be added to any collection at $150 per hour. A mileage fee of $0.70 per mile applies to events outside a 50-mile radius of Nashville, TN. All bookings are subject to a signed contract and retainer.
+            </p>
+          </FadeIn>
         </div>
       </section>
 
       <section className="bg-desert-sand/40 px-6 py-28 sm:py-36">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="mb-4 font-heading text-3xl text-espresso sm:text-4xl">
-            Not sure which collection fits your event?
-          </h2>
-          <p className="mx-auto mb-10 max-w-lg text-lg leading-relaxed text-almond/70">
-            Reach out and tell us about your gathering. We&rsquo;ll help you find the right fit.
-          </p>
-          <CtaButton href="/contact">Submit an Inquiry</CtaButton>
+          <FadeIn>
+            <h2 className="mb-4 font-heading text-3xl text-espresso sm:text-4xl">
+              Not sure which collection fits your event?
+            </h2>
+            <p className="mx-auto mb-10 max-w-lg text-lg leading-relaxed text-almond/70">
+              Reach out and tell us about your gathering. We&rsquo;ll help you find the right fit.
+            </p>
+            <CtaButton href="/contact">Submit an Inquiry</CtaButton>
+          </FadeIn>
         </div>
       </section>
     </>
