@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import Image from 'next/image'
 import { SectionDivider } from '@/components/section-divider'
 
 export const metadata: Metadata = {
@@ -39,26 +38,6 @@ export default function AboutPage() {
             here, you probably do too.
           </p>
           <SectionDivider />
-        </div>
-      </section>
-
-      <section className="bg-desert-sand/40 px-6 py-28 sm:py-36">
-        <div className="mx-auto max-w-3xl text-center">
-          <div className="relative mx-auto mb-10 aspect-[4/3] max-w-md overflow-hidden rounded">
-            <Image
-              src="/images/brand-couple.jpg"
-              alt="The founders of Unfiltered Rays Media Co."
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 500px"
-            />
-          </div>
-          <p className="mb-10 font-heading text-xl text-espresso">
-            Jazmen Howard &mdash; Founder
-          </p>
-          <p className="font-heading text-2xl italic text-almond/70">
-            We&rsquo;d love to be part of yours.
-          </p>
         </div>
       </section>
     </>
