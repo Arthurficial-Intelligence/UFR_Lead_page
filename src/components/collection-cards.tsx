@@ -59,7 +59,7 @@ export function CollectionCards() {
             {collection.name}
           </h3>
           <p className="mb-1 font-subheading text-sm font-light tracking-wide text-sunlit-clay">
-            {collection.price} &middot; {collection.duration}
+            Starting at {collection.price} &middot; {collection.duration}
           </p>
           <p className="mb-6 font-subheading text-sm italic text-almond/60">
             {collection.tagline}

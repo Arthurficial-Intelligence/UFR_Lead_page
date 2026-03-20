@@ -4,7 +4,7 @@ import { CtaButton } from '@/components/cta-button'
 import { SectionDivider } from '@/components/section-divider'
 
 export const metadata: Metadata = {
-  title: 'Services & Collections',
+  title: 'Collections & Pricing',
   description:
     'Explore our collections — thoughtfully designed photo booth experiences for weddings, celebrations, and brand activations in Nashville.',
 }

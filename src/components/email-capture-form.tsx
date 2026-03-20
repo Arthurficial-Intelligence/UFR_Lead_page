@@ -5,6 +5,7 @@ import { usePostHog } from 'posthog-js/react'
 
 const EVENT_TYPES = [
   'Wedding',
+  'Milestone / Anniversary',
   'Corporate Event',
   'Birthday Party',
   'Baby / Bridal Shower',

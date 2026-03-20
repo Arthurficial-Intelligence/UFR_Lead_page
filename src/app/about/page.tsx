@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { SectionDivider } from '@/components/section-divider'
 
 export const metadata: Metadata = {
-  title: 'About',
+  title: 'About Us',
   description:
     'Meet the team behind Unfiltered Rays Media Co. — an intentional photo booth experience for the moments that matter.',
 }

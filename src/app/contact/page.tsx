@@ -4,7 +4,7 @@ import { ContactForm } from '@/components/email-capture-form'
 import { SITE_CONFIG } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'Contact',
+  title: 'Inquire',
   description:
     'Reach out to reserve your date or learn more about Unfiltered Rays photo booth experiences in Nashville.',
 }
