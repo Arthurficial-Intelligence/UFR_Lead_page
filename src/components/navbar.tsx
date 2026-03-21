@@ -5,7 +5,6 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { SITE_CONFIG } from '@/lib/constants'
-import { CtaButton } from '@/components/cta-button'
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -39,9 +38,6 @@ export function Navbar() {
               {link.label}
             </Link>
           ))}
-          <CtaButton href="/contact" variant="inverted" className="px-6 py-2.5 text-sm">
-            Inquire
-          </CtaButton>
         </div>
 
         <button
@@ -77,9 +73,6 @@ export function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <CtaButton href="/contact" variant="inverted" className="mt-2 px-6 py-2.5 text-center text-sm">
-              Inquire
-            </CtaButton>
           </div>
         </div>
       )}

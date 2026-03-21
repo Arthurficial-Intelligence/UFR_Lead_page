@@ -51,6 +51,12 @@ const eventTypes = [
     alt: 'Couple sharing a joyful moment at their wedding photo booth',
   },
   {
+    title: 'Milestone Events',
+    copy: 'The moments worth marking. We make sure the day exists beyond the memory.',
+    image: '/images/ufr-1784.jpg',
+    alt: 'Intimate toast at a milestone celebration',
+  },
+  {
     title: 'Private Celebrations',
     copy: 'Birthdays, anniversaries, baby showers, graduations. The milestones that call for something more than a camera phone.',
     image: '/images/ufr-1622.jpg',
@@ -61,12 +67,6 @@ const eventTypes = [
     copy: 'We bring the same warmth and refinement to brand experiences \u2014 helping your guests connect with your brand in a way that feels human.',
     image: '/images/ufr-1757.jpg',
     alt: 'Professional portrait at a corporate brand activation',
-  },
-  {
-    title: 'Milestone Events',
-    copy: 'The moments worth marking. We make sure the day exists beyond the memory.',
-    image: '/images/ufr-1784.jpg',
-    alt: 'Intimate toast at a milestone celebration',
   },
 ]
 
