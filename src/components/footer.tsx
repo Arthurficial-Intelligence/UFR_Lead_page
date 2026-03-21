@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { SITE_CONFIG } from '@/lib/constants'
 
 export function Footer() {
@@ -10,7 +11,7 @@ export function Footer() {
             <p className="mb-2 font-heading text-2xl text-desert-sand">
               {SITE_CONFIG.shortName}
             </p>
-            <p className="font-subheading text-base italic text-desert-glow/70">
+            <p className="font-subheading text-base italic text-desert-glow">
               Preserving the moment, as it is.
             </p>
           </div>
@@ -56,7 +57,7 @@ export function Footer() {
         </div>
 
         <div className="mb-8 text-center">
-          <p className="mb-2 font-subheading text-xs tracking-widest text-desert-glow/60 uppercase">
+          <p className="mb-2 font-subheading text-xs tracking-widest text-desert-glow uppercase">
             Serving
           </p>
           <p className="text-sm text-desert-sand/40">
@@ -67,18 +68,28 @@ export function Footer() {
         </div>
 
         <div className="border-t border-desert-sand/10 pt-8 text-center">
-          <div className="mb-4 flex items-center justify-center gap-3 text-xs text-almond/50">
-            <Link href="/privacy-policy" className="transition-colors hover:text-desert-sand/60">
+          <div className="mb-4 flex items-center justify-center gap-3 text-xs text-desert-glow">
+            <Link href="/privacy-policy" className="transition-colors hover:text-desert-sand">
               Privacy Policy
             </Link>
             <span>·</span>
-            <Link href="/terms-of-use" className="transition-colors hover:text-desert-sand/60">
+            <Link href="/terms-of-use" className="transition-colors hover:text-desert-sand">
               Terms of Use
             </Link>
           </div>
           <p className="text-xs text-desert-sand/40">
             &copy; {new Date().getFullYear()} {SITE_CONFIG.name} All rights reserved.
           </p>
+          <div className="mt-8 flex justify-center">
+            <Image
+              src="/images/sun-mark.png"
+              alt=""
+              width={48}
+              height={28}
+              className="opacity-30 brightness-150 saturate-50"
+              aria-hidden="true"
+            />
+          </div>
         </div>
       </div>
     </footer>

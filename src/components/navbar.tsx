@@ -2,9 +2,9 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { SITE_CONFIG } from '@/lib/constants'
-import { CtaButton } from '@/components/cta-button'
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -12,9 +12,16 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 bg-espresso">
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <Link href="/" className="font-heading text-xl text-desert-sand sm:text-2xl">
-          {SITE_CONFIG.shortName}
+      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
+        <Link href="/" className="flex-shrink-0">
+          <Image
+            src="/images/logo-sand.png"
+            alt={SITE_CONFIG.name}
+            width={160}
+            height={56}
+            className="h-12 w-auto sm:h-14"
+            priority
+          />
         </Link>
 
         <div className="hidden items-center gap-8 lg:flex">
@@ -31,9 +38,6 @@ export function Navbar() {
               {link.label}
             </Link>
           ))}
-          <CtaButton href="/contact" variant="inverted" className="px-6 py-2.5 text-sm">
-            Inquire
-          </CtaButton>
         </div>
 
         <button
@@ -69,9 +73,6 @@ export function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <CtaButton href="/contact" variant="inverted" className="mt-2 px-6 py-2.5 text-center text-sm">
-              Inquire
-            </CtaButton>
           </div>
         </div>
       )}

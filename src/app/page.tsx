@@ -47,26 +47,26 @@ const eventTypes = [
   {
     title: 'Weddings',
     copy: 'An intimate addition to your reception \u2014 giving guests a printed keepsake and a reason to linger a little longer.',
-    image: '/images/ufr-1777.jpg',
-    alt: 'Couple sharing a joyful moment at their wedding photo booth',
-  },
-  {
-    title: 'Private Celebrations',
-    copy: 'Birthdays, anniversaries, baby showers, graduations. The milestones that call for something more than a camera phone.',
     image: '/images/ufr-1622.jpg',
-    alt: 'Friends celebrating together at a private event',
-  },
-  {
-    title: 'Corporate & Brand Activations',
-    copy: 'We bring the same warmth and refinement to brand experiences \u2014 helping your guests connect with your brand in a way that feels human.',
-    image: '/images/ufr-1757.jpg',
-    alt: 'Professional portrait at a corporate brand activation',
+    alt: 'Couple sharing a joyful moment at their wedding photo booth',
   },
   {
     title: 'Milestone Events',
     copy: 'The moments worth marking. We make sure the day exists beyond the memory.',
+    image: '/images/milestone-portrait.jpg',
+    alt: 'Guest posing confidently at a milestone celebration',
+  },
+  {
+    title: 'Private Celebrations',
+    copy: 'Birthdays, anniversaries, baby showers, graduations. The milestones that call for something more than a camera phone.',
+    image: '/images/celebration-portrait.jpg',
+    alt: 'Guest laughing during a private celebration',
+  },
+  {
+    title: 'Corporate & Brand Activations',
+    copy: 'We bring the same warmth and refinement to brand experiences \u2014 helping your guests connect with your brand in a way that feels human.',
     image: '/images/ufr-1784.jpg',
-    alt: 'Intimate toast at a milestone celebration',
+    alt: 'Group of friends posing together at a brand activation',
   },
 ]
 
@@ -176,6 +176,7 @@ export default function HomePage() {
                       alt={event.alt}
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      style={event.title === 'Weddings' ? { objectPosition: 'top' } : event.title === 'Milestone Events' ? { objectPosition: 'center 45%' } : event.title === 'Private Celebrations' ? { objectPosition: 'center 35%' } : event.title === 'Corporate & Brand Activations' ? { objectPosition: 'center 20%' } : undefined}
                       sizes="(max-width: 640px) 100vw, 50vw"
                     />
                   </div>
@@ -191,16 +192,16 @@ export default function HomePage() {
       </section>
 
       {/* Closing CTA */}
-      <section className="bg-espresso px-6 py-28 sm:py-36">
+      <section className="bg-desert-sand/40 px-6 py-28 sm:py-36">
         <div className="mx-auto max-w-3xl text-center">
           <FadeIn>
-            <h2 className="mb-6 font-heading text-4xl text-desert-sand sm:text-5xl">
+            <h2 className="mb-6 font-heading text-4xl text-espresso sm:text-5xl">
               Your date is waiting.
             </h2>
-            <p className="mx-auto mb-10 max-w-lg text-lg leading-relaxed text-desert-sand/70">
+            <p className="mx-auto mb-10 max-w-lg text-lg leading-relaxed text-almond/70">
               We take a limited number of events each season to ensure every experience gets our full attention. Reach out to check availability.
             </p>
-            <CtaButton href="/contact" variant="inverted">Submit an Inquiry</CtaButton>
+            <CtaButton href="/contact">Submit an Inquiry</CtaButton>
           </FadeIn>
         </div>
       </section>
