@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { SITE_CONFIG } from '@/lib/constants'
 
 export function Footer() {
@@ -79,6 +80,16 @@ export function Footer() {
           <p className="text-xs text-desert-sand/40">
             &copy; {new Date().getFullYear()} {SITE_CONFIG.name} All rights reserved.
           </p>
+          <div className="mt-8 flex justify-center">
+            <Image
+              src="/images/sun-mark.png"
+              alt=""
+              width={48}
+              height={28}
+              className="opacity-30 brightness-150 saturate-50"
+              aria-hidden="true"
+            />
+          </div>
         </div>
       </div>
     </footer>
