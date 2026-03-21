@@ -68,12 +68,12 @@ export function Footer() {
         </div>
 
         <div className="border-t border-desert-sand/10 pt-8 text-center">
-          <div className="mb-4 flex items-center justify-center gap-3 text-xs text-almond/50">
-            <Link href="/privacy-policy" className="transition-colors hover:text-desert-sand/60">
+          <div className="mb-4 flex items-center justify-center gap-3 text-xs text-sunlit-clay/60">
+            <Link href="/privacy-policy" className="transition-colors hover:text-sunlit-clay">
               Privacy Policy
             </Link>
             <span>·</span>
-            <Link href="/terms-of-use" className="transition-colors hover:text-desert-sand/60">
+            <Link href="/terms-of-use" className="transition-colors hover:text-sunlit-clay">
               Terms of Use
             </Link>
           </div>
