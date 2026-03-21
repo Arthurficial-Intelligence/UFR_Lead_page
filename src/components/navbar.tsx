@@ -13,14 +13,14 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 bg-espresso">
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
         <Link href="/" className="flex-shrink-0">
           <Image
             src="/images/logo-sand.png"
             alt={SITE_CONFIG.name}
-            width={140}
-            height={48}
-            className="h-10 w-auto"
+            width={160}
+            height={56}
+            className="h-12 w-auto sm:h-14"
             priority
           />
         </Link>
