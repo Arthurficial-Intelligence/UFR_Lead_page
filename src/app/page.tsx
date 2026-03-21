@@ -47,26 +47,26 @@ const eventTypes = [
   {
     title: 'Weddings',
     copy: 'An intimate addition to your reception \u2014 giving guests a printed keepsake and a reason to linger a little longer.',
-    image: '/images/ufr-1777.jpg',
+    image: '/images/ufr-1622.jpg',
     alt: 'Couple sharing a joyful moment at their wedding photo booth',
   },
   {
     title: 'Milestone Events',
     copy: 'The moments worth marking. We make sure the day exists beyond the memory.',
-    image: '/images/ufr-1784.jpg',
-    alt: 'Intimate toast at a milestone celebration',
+    image: '/images/milestone-portrait.jpg',
+    alt: 'Guest posing confidently at a milestone celebration',
   },
   {
     title: 'Private Celebrations',
     copy: 'Birthdays, anniversaries, baby showers, graduations. The milestones that call for something more than a camera phone.',
-    image: '/images/ufr-1622.jpg',
-    alt: 'Friends celebrating together at a private event',
+    image: '/images/celebration-portrait.jpg',
+    alt: 'Guest laughing during a private celebration',
   },
   {
     title: 'Corporate & Brand Activations',
     copy: 'We bring the same warmth and refinement to brand experiences \u2014 helping your guests connect with your brand in a way that feels human.',
-    image: '/images/ufr-1757.jpg',
-    alt: 'Professional portrait at a corporate brand activation',
+    image: '/images/ufr-1784.jpg',
+    alt: 'Group of friends posing together at a brand activation',
   },
 ]
 
@@ -176,6 +176,7 @@ export default function HomePage() {
                       alt={event.alt}
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      style={event.title === 'Weddings' ? { objectPosition: 'top' } : event.title === 'Milestone Events' ? { objectPosition: 'center 45%' } : event.title === 'Private Celebrations' ? { objectPosition: 'center 35%' } : event.title === 'Corporate & Brand Activations' ? { objectPosition: 'center 20%' } : undefined}
                       sizes="(max-width: 640px) 100vw, 50vw"
                     />
                   </div>

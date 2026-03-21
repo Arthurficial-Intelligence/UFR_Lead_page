@@ -37,25 +37,30 @@ export default function ServicesPage() {
   return (
     <>
       <section className="bg-desert-sand px-6 py-28 sm:py-36">
-        <div className="mx-auto max-w-3xl">
-          <h1 className="mb-8 font-heading text-5xl leading-tight text-espresso sm:text-6xl">
-            Considered experiences, designed for your day.
-          </h1>
-          <div className="relative mb-10 aspect-[4/3] overflow-hidden rounded">
-            <Image
-              src="/images/ufr-1545.jpg"
-              alt="The Unfiltered Rays photo booth setup"
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 700px"
-            />
+        <div className="mx-auto max-w-5xl">
+          <div className="grid items-start gap-12 lg:grid-cols-2">
+            <div>
+              <h1 className="mb-8 font-heading text-5xl leading-tight text-espresso sm:text-6xl">
+                Considered experiences, designed for your day.
+              </h1>
+              <p className="mb-6 text-lg leading-relaxed text-almond/80">
+                Every Unfiltered Rays collection is built around the same promise &mdash; a seamless, beautiful experience that your guests will actually remember. We handle setup, styling, and takedown so you can be fully present.
+              </p>
+              <p className="text-lg leading-relaxed text-almond/80">
+                Collections are available for weddings, private celebrations, milestones, and corporate brand activations in Nashville and surrounding areas.
+              </p>
+            </div>
+            <div className="mx-auto max-w-sm lg:max-w-none">
+              <Image
+                src="/images/booth-product.jpg"
+                alt="The handcrafted Unfiltered Rays wooden photo booth"
+                width={800}
+                height={1200}
+                className="h-auto w-full"
+                sizes="(max-width: 1024px) 384px, 50vw"
+              />
+            </div>
           </div>
-          <p className="mb-6 text-lg leading-relaxed text-almond/80">
-            Every Unfiltered Rays collection is built around the same promise &mdash; a seamless, beautiful experience that your guests will actually remember. We handle setup, styling, and takedown so you can be fully present.
-          </p>
-          <p className="text-lg leading-relaxed text-almond/80">
-            Collections are available for weddings, private celebrations, milestones, and corporate brand activations in Nashville and surrounding areas.
-          </p>
         </div>
       </section>
 
