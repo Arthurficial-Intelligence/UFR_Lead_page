@@ -11,7 +11,7 @@ export function Footer() {
             <p className="mb-2 font-heading text-2xl text-desert-sand">
               {SITE_CONFIG.shortName}
             </p>
-            <p className="font-subheading text-base italic text-desert-glow/70">
+            <p className="font-subheading text-base italic text-desert-glow">
               Preserving the moment, as it is.
             </p>
           </div>
@@ -57,7 +57,7 @@ export function Footer() {
         </div>
 
         <div className="mb-8 text-center">
-          <p className="mb-2 font-subheading text-xs tracking-widest text-desert-glow/60 uppercase">
+          <p className="mb-2 font-subheading text-xs tracking-widest text-desert-glow uppercase">
             Serving
           </p>
           <p className="text-sm text-desert-sand/40">
@@ -68,12 +68,12 @@ export function Footer() {
         </div>
 
         <div className="border-t border-desert-sand/10 pt-8 text-center">
-          <div className="mb-4 flex items-center justify-center gap-3 text-xs text-sunlit-clay/60">
-            <Link href="/privacy-policy" className="transition-colors hover:text-sunlit-clay">
+          <div className="mb-4 flex items-center justify-center gap-3 text-xs text-desert-glow">
+            <Link href="/privacy-policy" className="transition-colors hover:text-desert-sand">
               Privacy Policy
             </Link>
             <span>·</span>
-            <Link href="/terms-of-use" className="transition-colors hover:text-sunlit-clay">
+            <Link href="/terms-of-use" className="transition-colors hover:text-desert-sand">
               Terms of Use
             </Link>
           </div>
