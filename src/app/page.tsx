@@ -191,16 +191,16 @@ export default function HomePage() {
       </section>
 
       {/* Closing CTA */}
-      <section className="bg-espresso px-6 py-28 sm:py-36">
+      <section className="bg-desert-sand/40 px-6 py-28 sm:py-36">
         <div className="mx-auto max-w-3xl text-center">
           <FadeIn>
-            <h2 className="mb-6 font-heading text-4xl text-desert-sand sm:text-5xl">
+            <h2 className="mb-6 font-heading text-4xl text-espresso sm:text-5xl">
               Your date is waiting.
             </h2>
-            <p className="mx-auto mb-10 max-w-lg text-lg leading-relaxed text-desert-sand/70">
+            <p className="mx-auto mb-10 max-w-lg text-lg leading-relaxed text-almond/70">
               We take a limited number of events each season to ensure every experience gets our full attention. Reach out to check availability.
             </p>
-            <CtaButton href="/contact" variant="inverted">Submit an Inquiry</CtaButton>
+            <CtaButton href="/contact">Submit an Inquiry</CtaButton>
           </FadeIn>
         </div>
       </section>
