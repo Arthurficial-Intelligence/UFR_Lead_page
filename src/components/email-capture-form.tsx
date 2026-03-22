@@ -45,6 +45,7 @@ export function ContactForm() {
     const params = new URLSearchParams(window.location.search)
 
     try {
+      // Save lead to database
       const res = await fetch('/api/leads', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -65,6 +66,23 @@ export function ContactForm() {
         const data = await res.json()
         throw new Error(data.error || 'Something went wrong')
       }
+
+      // Open mailto: to send inquiry directly to the business email
+      const bodyLines = [
+        form.name ? `Name: ${form.name}` : '',
+        `Email: ${form.email}`,
+        form.phone ? `Phone: ${form.phone}` : '',
+        form.eventType ? `Event Type: ${form.eventType}` : '',
+        form.eventDate ? `Event Date: ${form.eventDate}` : '',
+        form.message ? `\nMessage:\n${form.message}` : '',
+      ].filter(Boolean).join('\n')
+
+      const mailtoParams = new URLSearchParams({
+        subject: `New Inquiry from ${form.name || form.email}`,
+        body: bodyLines,
+      })
+
+      window.location.href = `mailto:hello@unfilteredrays.com?${mailtoParams.toString()}`
 
       setStatus('success')
       posthog?.capture('lead_captured_client', {

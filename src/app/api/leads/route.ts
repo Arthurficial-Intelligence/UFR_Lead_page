@@ -1,9 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getSupabase } from '@/lib/supabase'
-import { getResend } from '@/lib/resend'
 import { captureServerEvent } from '@/lib/posthog-server'
 import { leadFormSchema } from '@/lib/validations'
-import { SITE_CONFIG } from '@/lib/constants'
 
 export async function POST(request: NextRequest) {
   try {
@@ -48,46 +46,6 @@ export async function POST(request: NextRequest) {
         { error: 'Failed to save your information' },
         { status: 500 }
       )
-    }
-
-    // Send emails - don't let failure block the response
-    try {
-      // Notify the business of the new inquiry
-      const inquiryDetails = [
-        `<p><strong>Name:</strong> ${data.name ?? 'Not provided'}</p>`,
-        `<p><strong>Email:</strong> ${data.email}</p>`,
-        data.phone ? `<p><strong>Phone:</strong> ${data.phone}</p>` : '',
-        data.eventType ? `<p><strong>Event Type:</strong> ${data.eventType}</p>` : '',
-        data.eventDate ? `<p><strong>Event Date:</strong> ${data.eventDate}</p>` : '',
-        data.message ? `<p><strong>Message:</strong> ${data.message}</p>` : '',
-      ].filter(Boolean).join('\n')
-
-      await Promise.all([
-        // Send inquiry notification to the business
-        getResend().emails.send({
-          from: `${SITE_CONFIG.name} <${SITE_CONFIG.contact.email}>`,
-          to: SITE_CONFIG.contact.email,
-          replyTo: data.email,
-          subject: `New Inquiry from ${data.name ?? data.email}`,
-          html: `
-            <h1>New Inquiry Received</h1>
-            ${inquiryDetails}
-          `,
-        }),
-        // Send confirmation email to the lead
-        getResend().emails.send({
-          from: `${SITE_CONFIG.name} <${SITE_CONFIG.contact.email}>`,
-          to: data.email,
-          subject: `Thanks for your interest in ${SITE_CONFIG.name}!`,
-          html: `
-            <h1>Thanks for reaching out!</h1>
-            <p>We received your inquiry and will get back to you shortly.</p>
-            <p>- The ${SITE_CONFIG.name} Team</p>
-          `,
-        }),
-      ])
-    } catch (emailError) {
-      console.error('Resend email error:', emailError)
     }
 
     // Track server-side event
