@@ -3,7 +3,17 @@ import { getSupabase } from '@/lib/supabase'
 import { captureServerEvent } from '@/lib/posthog-server'
 import { leadFormSchema } from '@/lib/validations'
 
+const FALLBACK_MESSAGE = `Please email us directly at ${SITE_CONFIG.contact.email}`
+
 export async function POST(request: NextRequest) {
+  if (!process.env.SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) {
+    console.error('Missing Supabase environment variables')
+    return NextResponse.json(
+      { error: `Our system is temporarily unavailable. ${FALLBACK_MESSAGE}` },
+      { status: 503 }
+    )
+  }
+
   try {
     const body = await request.json()
     const result = leadFormSchema.safeParse(body)
@@ -23,27 +33,37 @@ export async function POST(request: NextRequest) {
       'unknown'
     const userAgent = request.headers.get('user-agent') ?? 'unknown'
 
-    const { error: dbError } = await getSupabase().from('leads').upsert(
-      {
-        email: data.email,
-        name: data.name ?? null,
-        phone: data.phone ?? null,
-        event_type: data.eventType ?? null,
-        event_date: data.eventDate ?? null,
-        message: data.message ?? null,
-        utm_source: data.utmSource ?? null,
-        utm_medium: data.utmMedium ?? null,
-        utm_campaign: data.utmCampaign ?? null,
-        ip_address: ip,
-        user_agent: userAgent,
-      },
-      { onConflict: 'email' }
-    )
+    let dbError
+    try {
+      const dbResult = await getSupabase().from('leads').upsert(
+        {
+          email: data.email,
+          name: data.name ?? null,
+          phone: data.phone ?? null,
+          event_type: data.eventType ?? null,
+          event_date: data.eventDate ?? null,
+          message: data.message ?? null,
+          utm_source: data.utmSource ?? null,
+          utm_medium: data.utmMedium ?? null,
+          utm_campaign: data.utmCampaign ?? null,
+          ip_address: ip,
+          user_agent: userAgent,
+        },
+        { onConflict: 'email' }
+      )
+      dbError = dbResult.error
+    } catch (supabaseError) {
+      console.error('Supabase connection error:', supabaseError)
+      return NextResponse.json(
+        { error: `We're having trouble saving your inquiry. ${FALLBACK_MESSAGE}` },
+        { status: 500 }
+      )
+    }
 
     if (dbError) {
-      console.error('Supabase insert error:', dbError)
+      console.error('Supabase upsert error:', dbError)
       return NextResponse.json(
-        { error: 'Failed to save your information' },
+        { error: `We're having trouble saving your inquiry. ${FALLBACK_MESSAGE}` },
         { status: 500 }
       )
     }
@@ -67,7 +87,7 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     console.error('Lead capture error:', error)
     return NextResponse.json(
-      { error: 'Internal server error' },
+      { error: `Something went wrong. ${FALLBACK_MESSAGE}` },
       { status: 500 }
     )
   }
