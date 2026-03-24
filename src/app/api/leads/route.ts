@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { getSupabase } from '@/lib/supabase'
 import { captureServerEvent } from '@/lib/posthog-server'
 import { leadFormSchema } from '@/lib/validations'
+import { SITE_CONFIG } from '@/lib/constants'
 
 const FALLBACK_MESSAGE = `Please email us directly at ${SITE_CONFIG.contact.email}`
 
