@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getSupabase } from '@/lib/supabase'
+import { getResend } from '@/lib/resend'
 import { captureServerEvent } from '@/lib/posthog-server'
 import { leadFormSchema } from '@/lib/validations'
 import { SITE_CONFIG } from '@/lib/constants'
@@ -67,6 +68,26 @@ export async function POST(request: NextRequest) {
         { error: `We're having trouble saving your inquiry. ${FALLBACK_MESSAGE}` },
         { status: 500 }
       )
+    }
+
+    // Notify business of new inquiry - don't block response
+    try {
+      await getResend().emails.send({
+        from: 'Unfiltered Rays Leads <onboarding@resend.dev>',
+        to: SITE_CONFIG.contact.email,
+        subject: `New Inquiry from ${data.name || data.email}`,
+        html: [
+          `<h2>New Lead from unfilteredrays.com</h2>`,
+          `<p><strong>Name:</strong> ${data.name || 'Not provided'}</p>`,
+          `<p><strong>Email:</strong> ${data.email}</p>`,
+          data.phone ? `<p><strong>Phone:</strong> ${data.phone}</p>` : '',
+          data.eventType ? `<p><strong>Event Type:</strong> ${data.eventType}</p>` : '',
+          data.eventDate ? `<p><strong>Event Date:</strong> ${data.eventDate}</p>` : '',
+          data.message ? `<p><strong>Message:</strong> ${data.message}</p>` : '',
+        ].filter(Boolean).join('\n'),
+      })
+    } catch (emailError) {
+      console.error('Resend notification error:', emailError)
     }
 
     // Track server-side event
