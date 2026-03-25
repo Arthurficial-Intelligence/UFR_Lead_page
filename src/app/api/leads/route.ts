@@ -73,7 +73,7 @@ export async function POST(request: NextRequest) {
     // Notify business of new inquiry - don't block response
     try {
       await getResend().emails.send({
-        from: 'Unfiltered Rays Leads <onboarding@resend.dev>',
+        from: `${SITE_CONFIG.name} <${SITE_CONFIG.contact.email}>`,
         to: SITE_CONFIG.contact.email,
         subject: `New Inquiry from ${data.name || data.email}`,
         html: [
