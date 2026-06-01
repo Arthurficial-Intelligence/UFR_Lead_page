@@ -4,6 +4,9 @@ import { FadeIn } from '@/components/fade-in'
 import { CollectionCards } from '@/components/collection-cards'
 import { CtaButton } from '@/components/cta-button'
 import { SectionDivider } from '@/components/section-divider'
+import { getServices } from '@/content'
+
+export const revalidate = 60
 
 export const metadata: Metadata = {
   title: 'Collections & Pricing',
@@ -11,29 +14,9 @@ export const metadata: Metadata = {
     'Explore our collections — thoughtfully designed photo booth experiences for weddings, celebrations, and brand activations in Nashville.',
 }
 
-const includedItems = [
-  'Handcrafted wooden booth with high-powered mirrorless/DSLR camera',
-  'Professional studio lighting',
-  'On-site printed photo strips throughout your event',
-  'Unlimited digital photos with full online gallery',
-  'Instant sharing via text and email — no app required',
-  'GIFs and boomerang capability',
-  'Personalized photo overlay (name, date, and event details)',
-  'Curated backdrop selection',
-  'Thoughtfully styled props',
-  'Custom welcome screen',
-  'Dedicated on-site attendant for the full rental period',
-  'Delivery, full setup, and breakdown — Nashville and surrounding areas',
-]
+export default async function ServicesPage() {
+  const services = await getServices()
 
-const canvasAudience = [
-  'Product launches and brand activations',
-  'Corporate holiday parties and client appreciation events',
-  'Experiential marketing campaigns',
-  'Conferences, retreats, and team events',
-]
-
-export default function ServicesPage() {
   return (
     <>
       <section className="bg-desert-sand px-6 py-28 sm:py-36">
@@ -41,19 +24,23 @@ export default function ServicesPage() {
           <div className="grid items-start gap-12 lg:grid-cols-2">
             <div>
               <h1 className="mb-8 font-heading text-5xl leading-tight text-espresso sm:text-6xl">
-                Considered experiences, designed for your day.
+                {services.heroHeading}
               </h1>
-              <p className="mb-6 text-lg leading-relaxed text-almond/80">
-                Every Unfiltered Rays collection is built around the same promise &mdash; a seamless, beautiful experience that your guests will actually remember. We handle setup, styling, and takedown so you can be fully present.
-              </p>
-              <p className="text-lg leading-relaxed text-almond/80">
-                Collections are available for weddings, private celebrations, milestones, and corporate brand activations in Nashville and surrounding areas.
-              </p>
+              {services.heroParagraphs.map((paragraph, i) => (
+                <p
+                  key={i}
+                  className={`text-lg leading-relaxed text-almond/80 ${
+                    i < services.heroParagraphs.length - 1 ? 'mb-6' : ''
+                  }`}
+                >
+                  {paragraph}
+                </p>
+              ))}
             </div>
             <div className="mx-auto max-w-sm lg:max-w-none">
               <Image
-                src="/images/booth-product.jpg"
-                alt="The handcrafted Unfiltered Rays wooden photo booth"
+                src={services.heroImage.src}
+                alt={services.heroImage.alt}
                 width={800}
                 height={1200}
                 className="h-auto w-full"
@@ -68,10 +55,10 @@ export default function ServicesPage() {
         <div className="mx-auto max-w-5xl">
           <FadeIn>
             <h2 className="mb-12 font-heading text-4xl text-espresso sm:text-5xl">
-              What&rsquo;s Included in Every Collection
+              {services.includedHeading}
             </h2>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {includedItems.map((item) => (
+              {services.includedItems.map((item) => (
                 <div key={item} className="rounded border border-espresso/5 bg-desert-sand/30 p-5">
                   <p className="text-sm leading-relaxed text-almond/70">{item}</p>
                 </div>
@@ -79,8 +66,8 @@ export default function ServicesPage() {
             </div>
             <div className="relative mt-12 aspect-[16/9] overflow-hidden rounded">
               <Image
-                src="/images/ufr-1489.jpg"
-                alt="Guests interacting with the photo booth"
+                src={services.includedImage.src}
+                alt={services.includedImage.alt}
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 1000px"
@@ -95,9 +82,9 @@ export default function ServicesPage() {
         <div className="mx-auto max-w-6xl">
           <FadeIn>
             <h2 className="mb-12 font-heading text-4xl text-espresso sm:text-5xl">
-              The Collections
+              {services.collectionsHeading}
             </h2>
-            <CollectionCards />
+            <CollectionCards collections={services.collections} />
             <SectionDivider className="mt-16" />
           </FadeIn>
         </div>
@@ -107,30 +94,34 @@ export default function ServicesPage() {
         <div className="mx-auto max-w-3xl">
           <FadeIn>
             <p className="mb-4 font-subheading text-sm font-light tracking-widest text-desert-glow uppercase">
-              The Canvas Collection &mdash; Corporate &amp; Brand
+              {services.canvasEyebrow}
             </p>
             <h2 className="mb-4 font-heading text-4xl text-desert-sand sm:text-5xl">
-              Your brand. Your moment. Built together.
+              {services.canvasHeading}
             </h2>
             <p className="mb-8 font-subheading text-sm text-desert-sand/50">
-              Pricing upon inquiry &middot; Custom duration
+              {services.canvasPricingNote}
             </p>
-            <p className="mb-6 text-lg leading-relaxed text-desert-sand/70">
-              Designed for corporate clients, brand activations, and experiential marketing moments. The Canvas Collection is fully bespoke &mdash; we work directly with your team to design a photo booth experience that feels native to your brand, not like a vendor add-on.
-            </p>
-            <p className="mb-10 text-lg leading-relaxed text-desert-sand/70">
-              Whether you&rsquo;re launching a product, hosting a client appreciation event, or building a social-worthy activation, we bring the same warmth and intention that defines every Unfiltered Rays experience &mdash; built entirely around your audience.
-            </p>
+            {services.canvasParagraphs.map((paragraph, i) => (
+              <p
+                key={i}
+                className={`text-lg leading-relaxed text-desert-sand/70 ${
+                  i < services.canvasParagraphs.length - 1 ? 'mb-6' : 'mb-10'
+                }`}
+              >
+                {paragraph}
+              </p>
+            ))}
             <p className="mb-4 font-subheading text-xs tracking-widest text-desert-glow uppercase">
-              Who it&rsquo;s for
+              {services.canvasAudienceLabel}
             </p>
             <ul className="mb-10 space-y-2 text-desert-sand/60">
-              {canvasAudience.map((item) => (
+              {services.canvasAudience.map((item) => (
                 <li key={item}>&mdash; {item}</li>
               ))}
             </ul>
             <CtaButton href="/contact" variant="inverted">
-              Let&rsquo;s Talk About Your Event
+              {services.canvasCtaLabel}
             </CtaButton>
           </FadeIn>
         </div>
@@ -140,7 +131,7 @@ export default function ServicesPage() {
         <div className="mx-auto max-w-3xl text-center">
           <FadeIn>
             <p className="text-sm leading-relaxed text-almond/50">
-              Additional hours may be added to any collection at $150 per hour. A mileage fee of $0.70 per mile applies to events outside a 50-mile radius of Nashville, TN. All bookings are subject to a signed contract and retainer.
+              {services.finePrint}
             </p>
           </FadeIn>
         </div>
@@ -150,12 +141,12 @@ export default function ServicesPage() {
         <div className="mx-auto max-w-3xl text-center">
           <FadeIn>
             <h2 className="mb-4 font-heading text-3xl text-espresso sm:text-4xl">
-              Not sure which collection fits your event?
+              {services.closingHeading}
             </h2>
             <p className="mx-auto mb-10 max-w-lg text-lg leading-relaxed text-almond/70">
-              Reach out and tell us about your gathering. We&rsquo;ll help you find the right fit.
+              {services.closingCopy}
             </p>
-            <CtaButton href="/contact">Submit an Inquiry</CtaButton>
+            <CtaButton href="/contact">{services.closingCtaLabel}</CtaButton>
           </FadeIn>
         </div>
       </section>

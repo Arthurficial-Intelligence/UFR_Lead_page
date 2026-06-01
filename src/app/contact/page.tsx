@@ -2,7 +2,9 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import { FadeIn } from '@/components/fade-in'
 import { ContactForm } from '@/components/email-capture-form'
-import { SITE_CONFIG } from '@/lib/constants'
+import { getContact, getSiteSettings } from '@/content'
+
+export const revalidate = 60
 
 export const metadata: Metadata = {
   title: 'Inquire',
@@ -10,17 +12,18 @@ export const metadata: Metadata = {
     'Reach out to reserve your date or learn more about Unfiltered Rays photo booth experiences in Nashville.',
 }
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const [contact, settings] = await Promise.all([getContact(), getSiteSettings()])
+
   return (
     <>
       <section className="bg-desert-sand px-6 py-28 sm:py-36">
         <div className="mx-auto max-w-3xl">
           <h1 className="mb-6 font-heading text-5xl leading-tight text-espresso sm:text-6xl">
-            Let&rsquo;s talk about your gathering.
+            {contact.heading}
           </h1>
           <p className="text-lg leading-relaxed text-almond/80">
-            We&rsquo;d love to hear about your event. Fill out the form below
-            and a member of our team will be in touch within 2 business days.
+            {contact.intro}
           </p>
         </div>
       </section>
@@ -32,30 +35,30 @@ export default function ContactPage() {
             <div>
               <div className="relative mb-10 aspect-[4/3] overflow-hidden rounded">
                 <Image
-                  src="/images/ufr-1808.jpg"
-                  alt="Warm, intimate moment at photo booth"
+                  src={contact.image.src}
+                  alt={contact.image.alt}
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
               </div>
               <p className="mb-4 font-subheading text-sm tracking-wide text-almond/60">
-                Prefer to reach us directly?
+                {contact.directLabel}
               </p>
               <div className="space-y-3 text-almond/70">
                 <a
-                  href={`mailto:${SITE_CONFIG.contact.email}`}
+                  href={`mailto:${settings.contactEmail}`}
                   className="block transition-colors hover:text-espresso"
                 >
-                  {SITE_CONFIG.contact.email}
+                  {settings.contactEmail}
                 </a>
                 <a
-                  href={SITE_CONFIG.contact.instagramUrl}
+                  href={settings.instagramUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block transition-colors hover:text-espresso"
                 >
-                  {SITE_CONFIG.contact.instagram}
+                  {settings.instagram}
                 </a>
               </div>
             </div>

@@ -2,6 +2,9 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import { FadeIn } from '@/components/fade-in'
 import { SectionDivider } from '@/components/section-divider'
+import { getAbout } from '@/content'
+
+export const revalidate = 60
 
 export const metadata: Metadata = {
   title: 'About Us',
@@ -9,13 +12,15 @@ export const metadata: Metadata = {
     'Meet the team behind Unfiltered Rays Media Co. — an intentional photo booth experience for the moments that matter.',
 }
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const about = await getAbout()
+
   return (
     <>
       <section className="bg-desert-sand px-6 py-28 sm:py-36">
         <div className="mx-auto max-w-3xl">
           <h1 className="mb-8 font-heading text-5xl leading-tight text-espresso sm:text-6xl">
-            We started this because moments matter.
+            {about.heading}
           </h1>
         </div>
       </section>
@@ -25,30 +30,23 @@ export default function AboutPage() {
           <FadeIn>
             <div className="relative mb-10 aspect-[4/3] overflow-hidden rounded">
               <Image
-                src="/images/ufr-1825.jpg"
-                alt="The Unfiltered Rays team sharing an unposed, joyful moment"
+                src={about.image.src}
+                alt={about.image.alt}
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 700px"
               />
             </div>
-            <p className="mb-6 text-lg leading-relaxed text-almond/80">
-              Unfiltered Rays Media Co. was built around a simple belief: the
-              best photos are the ones that actually look like you. Not the
-              posed version. Not the camera-ready version. The real one &mdash;
-              mid-laugh, leaning in, completely present.
-            </p>
-            <p className="mb-6 text-lg leading-relaxed text-almond/80">
-              We&rsquo;re a small, intentional team that brings a calm,
-              elevated photo booth experience to the events we care about most.
-              Every setup is thoughtfully designed. Every interaction is warm.
-              And every photo is a piece of the day, exactly as it happened.
-            </p>
-            <p className="mb-12 text-lg leading-relaxed text-almond/80">
-              We work with couples, families, and brands who understand the
-              difference between documentation and memory-making. If you&rsquo;re
-              here, you probably do too.
-            </p>
+            {about.paragraphs.map((paragraph, i) => (
+              <p
+                key={i}
+                className={`text-lg leading-relaxed text-almond/80 ${
+                  i < about.paragraphs.length - 1 ? 'mb-6' : 'mb-12'
+                }`}
+              >
+                {paragraph}
+              </p>
+            ))}
             <SectionDivider />
           </FadeIn>
         </div>

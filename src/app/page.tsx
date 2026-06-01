@@ -1,76 +1,36 @@
 import Image from 'next/image'
 import { SITE_CONFIG } from '@/lib/constants'
+import { getHome, getSiteSettings } from '@/content'
 import { CtaButton } from '@/components/cta-button'
 import { SectionDivider } from '@/components/section-divider'
 import { FadeIn } from '@/components/fade-in'
 
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
-  name: SITE_CONFIG.name,
-  description: SITE_CONFIG.description,
-  url: SITE_CONFIG.url,
-  image: `${SITE_CONFIG.url}${SITE_CONFIG.ogImage}`,
-  email: SITE_CONFIG.contact.email,
-  address: {
-    '@type': 'PostalAddress',
-    addressLocality: SITE_CONFIG.address.locality,
-    addressRegion: SITE_CONFIG.address.region,
-    addressCountry: SITE_CONFIG.address.country,
-  },
-  priceRange: '$$',
-  areaServed: SITE_CONFIG.serviceAreas.map((city) => ({
-    '@type': 'City',
-    name: `${city}, TN`,
-  })),
-}
+export const revalidate = 60
 
-const steps = [
-  {
-    number: '1',
-    title: 'Reserve your date',
-    copy: 'Reach out and tell us about your event. We\u2019ll confirm availability and walk you through the collections.',
-  },
-  {
-    number: '2',
-    title: 'Design your experience',
-    copy: 'Choose your backdrop, overlay, and styling details. We handle every element so you don\u2019t have to.',
-  },
-  {
-    number: '3',
-    title: 'Arrive and enjoy',
-    copy: 'Our team sets up before your guests arrive and stays present throughout. You celebrate. We take care of the rest.',
-  },
-]
+export default async function HomePage() {
+  const [home, settings] = await Promise.all([getHome(), getSiteSettings()])
 
-const eventTypes = [
-  {
-    title: 'Weddings',
-    copy: 'An intimate addition to your reception \u2014 giving guests a printed keepsake and a reason to linger a little longer.',
-    image: '/images/ufr-1622.jpg',
-    alt: 'Couple sharing a joyful moment at their wedding photo booth',
-  },
-  {
-    title: 'Milestone Events',
-    copy: 'The moments worth marking. We make sure the day exists beyond the memory.',
-    image: '/images/milestone-portrait.jpg',
-    alt: 'Guest posing confidently at a milestone celebration',
-  },
-  {
-    title: 'Private Celebrations',
-    copy: 'Birthdays, anniversaries, baby showers, graduations. The milestones that call for something more than a camera phone.',
-    image: '/images/celebration-portrait.jpg',
-    alt: 'Guest laughing during a private celebration',
-  },
-  {
-    title: 'Corporate & Brand Activations',
-    copy: 'We bring the same warmth and refinement to brand experiences \u2014 helping your guests connect with your brand in a way that feels human.',
-    image: '/images/ufr-1784.jpg',
-    alt: 'Group of friends posing together at a brand activation',
-  },
-]
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: settings.name,
+    description: settings.description,
+    url: SITE_CONFIG.url,
+    image: `${SITE_CONFIG.url}${SITE_CONFIG.ogImage}`,
+    email: settings.contactEmail,
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: SITE_CONFIG.address.locality,
+      addressRegion: SITE_CONFIG.address.region,
+      addressCountry: SITE_CONFIG.address.country,
+    },
+    priceRange: '$$',
+    areaServed: settings.serviceAreas.map((city) => ({
+      '@type': 'City',
+      name: `${city}, TN`,
+    })),
+  }
 
-export default function HomePage() {
   return (
     <>
       <script
@@ -81,7 +41,7 @@ export default function HomePage() {
       {/* Hero */}
       <section className="relative flex min-h-[90vh] flex-col items-center justify-center overflow-hidden bg-desert-sand px-6">
         <Image
-          src="/images/ufr-1085.jpg"
+          src={home.heroBackgroundImage.src}
           alt=""
           fill
           className="object-cover opacity-20"
@@ -94,12 +54,13 @@ export default function HomePage() {
         </div>
         <div className="relative z-10 mx-auto max-w-3xl text-center">
           <h1 className="mb-6 font-heading text-5xl leading-tight tracking-tight text-espresso sm:text-6xl md:text-7xl">
-            The moment, <span className="italic">held.</span>
+            {home.heroHeadingLead}{' '}
+            <span className="italic">{home.heroHeadingEmphasis}</span>
           </h1>
           <p className="mx-auto mb-10 max-w-xl font-subheading text-lg font-light leading-relaxed text-almond/80 sm:text-xl">
-            A refined photo booth experience for weddings, celebrations, and the gatherings that matter most.
+            {home.heroSubheading}
           </p>
-          <CtaButton href="/contact">Inquire</CtaButton>
+          <CtaButton href="/contact">{home.heroCtaLabel}</CtaButton>
         </div>
         <div className="absolute bottom-10 left-1/2 -translate-x-1/2">
           <div className="h-10 w-[1px] bg-gradient-to-b from-sunlit-clay/60 to-transparent" />
@@ -113,8 +74,8 @@ export default function HomePage() {
             <div className="grid items-center gap-16 lg:grid-cols-2">
               <div className="relative mx-auto aspect-[3/4] w-full max-w-md overflow-hidden rounded">
                 <Image
-                  src="/images/ufr-1808.jpg"
-                  alt="An intimate, unposed moment at a photo booth experience"
+                  src={home.brandImage.src}
+                  alt={home.brandImage.alt}
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"
@@ -122,14 +83,18 @@ export default function HomePage() {
               </div>
               <div>
                 <h2 className="mb-8 font-heading text-4xl leading-snug text-espresso sm:text-5xl">
-                  Gathered. Real. Yours.
+                  {home.brandHeading}
                 </h2>
-                <p className="mb-6 text-lg leading-relaxed text-almond/80">
-                  Some moments are too good to let slip by unnoticed. At Unfiltered Rays, we create space for your guests to slow down &mdash; to laugh, connect, and leave with something tangible from the night.
-                </p>
-                <p className="text-lg leading-relaxed text-almond/80">
-                  We&rsquo;re not here to add noise to your event. We&rsquo;re here to add warmth.
-                </p>
+                {home.brandParagraphs.map((paragraph, i) => (
+                  <p
+                    key={i}
+                    className={`text-lg leading-relaxed text-almond/80 ${
+                      i < home.brandParagraphs.length - 1 ? 'mb-6' : ''
+                    }`}
+                  >
+                    {paragraph}
+                  </p>
+                ))}
               </div>
             </div>
             <SectionDivider className="mt-16" />
@@ -142,10 +107,10 @@ export default function HomePage() {
         <div className="mx-auto max-w-5xl">
           <FadeIn>
             <h2 className="mb-16 font-heading text-4xl text-espresso sm:text-5xl">
-              A seamless addition to your celebration.
+              {home.howItWorksHeading}
             </h2>
             <div className="grid gap-12 sm:grid-cols-3">
-              {steps.map((step) => (
+              {home.howItWorksSteps.map((step) => (
                 <div key={step.number} className="text-center">
                   <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full border-2 border-sunlit-clay/30">
                     <span className="font-heading text-3xl text-sunlit-clay">{step.number}</span>
@@ -165,18 +130,22 @@ export default function HomePage() {
         <div className="mx-auto max-w-5xl">
           <FadeIn>
             <h2 className="mb-16 font-heading text-4xl text-espresso sm:text-5xl">
-              Every gathering deserves to be remembered.
+              {home.eventTypesHeading}
             </h2>
             <div className="grid gap-8 sm:grid-cols-2">
-              {eventTypes.map((event) => (
+              {home.eventTypes.map((event) => (
                 <div key={event.title} className="group overflow-hidden rounded">
                   <div className="relative aspect-[4/3] overflow-hidden">
                     <Image
-                      src={event.image}
-                      alt={event.alt}
+                      src={event.image.src}
+                      alt={event.image.alt}
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      style={event.title === 'Weddings' ? { objectPosition: 'top' } : event.title === 'Milestone Events' ? { objectPosition: 'center 45%' } : event.title === 'Private Celebrations' ? { objectPosition: 'center 35%' } : event.title === 'Corporate & Brand Activations' ? { objectPosition: 'center 20%' } : undefined}
+                      style={
+                        event.image.objectPosition
+                          ? { objectPosition: event.image.objectPosition }
+                          : undefined
+                      }
                       sizes="(max-width: 640px) 100vw, 50vw"
                     />
                   </div>
@@ -196,12 +165,12 @@ export default function HomePage() {
         <div className="mx-auto max-w-3xl text-center">
           <FadeIn>
             <h2 className="mb-6 font-heading text-4xl text-espresso sm:text-5xl">
-              Your date is waiting.
+              {home.closingHeading}
             </h2>
             <p className="mx-auto mb-10 max-w-lg text-lg leading-relaxed text-almond/70">
-              We take a limited number of events each season to ensure every experience gets our full attention. Reach out to check availability.
+              {home.closingCopy}
             </p>
-            <CtaButton href="/contact">Submit an Inquiry</CtaButton>
+            <CtaButton href="/contact">{home.closingCtaLabel}</CtaButton>
           </FadeIn>
         </div>
       </section>

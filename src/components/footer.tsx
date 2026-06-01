@@ -1,18 +1,21 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { SITE_CONFIG } from '@/lib/constants'
+import { getSiteSettings } from '@/content'
 
-export function Footer() {
+export async function Footer() {
+  const settings = await getSiteSettings()
+
   return (
     <footer className="bg-espresso px-6 py-16">
       <div className="mx-auto max-w-5xl">
         <div className="mb-12 grid gap-10 sm:grid-cols-3">
           <div>
             <p className="mb-2 font-heading text-2xl text-desert-sand">
-              {SITE_CONFIG.shortName}
+              {settings.shortName}
             </p>
             <p className="font-subheading text-base italic text-desert-glow">
-              Preserving the moment, as it is.
+              {settings.tagline}
             </p>
           </div>
 
@@ -39,18 +42,18 @@ export function Footer() {
             </p>
             <div className="flex flex-col gap-2 text-sm text-desert-sand/60">
               <a
-                href={`mailto:${SITE_CONFIG.contact.email}`}
+                href={`mailto:${settings.contactEmail}`}
                 className="transition-colors hover:text-desert-sand"
               >
-                {SITE_CONFIG.contact.email}
+                {settings.contactEmail}
               </a>
               <a
-                href={SITE_CONFIG.contact.instagramUrl}
+                href={settings.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="transition-colors hover:text-desert-sand"
               >
-                {SITE_CONFIG.contact.instagram}
+                {settings.instagram}
               </a>
             </div>
           </div>
@@ -61,9 +64,7 @@ export function Footer() {
             Serving
           </p>
           <p className="text-sm text-desert-sand/40">
-            Nashville · Murfreesboro · Clarksville
-            <br />
-            Franklin · Spring Hill · Lebanon
+            {settings.serviceAreas.join(' · ')}
           </p>
         </div>
 
@@ -78,7 +79,7 @@ export function Footer() {
             </Link>
           </div>
           <p className="text-xs text-desert-sand/40">
-            &copy; {new Date().getFullYear()} {SITE_CONFIG.name} All rights reserved.
+            &copy; {new Date().getFullYear()} {settings.name} All rights reserved.
           </p>
           <div className="mt-8 flex justify-center">
             <Image

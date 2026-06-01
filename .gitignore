@@ -41,6 +41,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# sanity
+.sanity/
+
 # playwright
 /test-results/
 /playwright-report/
